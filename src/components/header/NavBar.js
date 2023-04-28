@@ -10,7 +10,7 @@ function NavBar() {
                         </a>
                     </div>
                     <form class="col-sm-5 col-lg mb-3 mb-lg-0 me-lg-3" role="search">
-                        <input type="search" class="form-control form-control-secondary text-bg-secondary" placeholder="Search..." aria-label="Search" />
+                        <input type="search" class="form-control form-control-secondary" placeholder="Search..." aria-label="Search" />
                     </form>
                     <div>
                         <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
