@@ -1,4 +1,12 @@
+import { useContext } from "react";
+import { LoginContext } from "../../context/LoginContext";
+
 function Avatar() {
+    const {setIsLogin} = useContext(LoginContext);
+    function handleLogout(e){
+        e.preventDefault();
+        setIsLogin(false)
+    }
     return (
         <>
             <div className="dropdown text-end">
@@ -10,7 +18,7 @@ function Avatar() {
                     <li><a className="dropdown-item" href="#">Settings</a></li>
                     <li><a className="dropdown-item" href="#">Profile</a></li>
                     <li><hr className="dropdown-divider" /></li>
-                    <li><a className="dropdown-item" href="#">Sign out</a></li>
+                    <li><a className="dropdown-item" href="#ID" onClick={handleLogout}>Sign out</a></li>
                 </ul>
             </div>
         </>

@@ -1,6 +1,10 @@
 import {Link } from "react-router-dom";
 import Avatar from "./Avatar";
+import LoginRegisterButton from "./LoginRegisterButton";
+import { useContext } from "react";
+import { LoginContext } from "../../context/LoginContext";
 function NavBar() {
+    const {isLogin} = useContext(LoginContext);
     return (
         <>
             <div className="container">
@@ -14,17 +18,12 @@ function NavBar() {
                     <form className="col-sm-5 col-lg mb-3 mb-lg-0 me-lg-3" role="search">
                         <input type="search" className="form-control form-control-secondary" placeholder="Search..." aria-label="Search" />
                     </form>
-                    {/* <div>
+                    <div>
                         <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                             <li><Link to="/secondMain" className="nav-link px-2 link-secondary">Dashboard</Link></li>
                         </ul>
-                    </div> */}
-
-                    <div className="col-md-3 text-end">
-                        <button type="button" className="btn btn-outline-primary me-2"><Link to="/loginPage" className="d-inline-flex link-body-emphasis text-decoration-none">Login</Link></button>
-                        <button type="button" className="btn btn-primary">Sign-up</button>
                     </div>
-                    {/* <Avatar /> */}
+                    {isLogin ? <Avatar /> : <LoginRegisterButton />}
                 </header>
             </div>
         </>
