@@ -1,11 +1,11 @@
 function NavBar() {
     return (
         <>
-            <div className="container">
+            <div className="container-fluid" style={{background: "#1ed760"}}>
                 <header className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
                     <div className="col-md-3 mb-2 mb-md-0">
                         <a href="/" className="d-inline-flex link-body-emphasis text-decoration-none">
-                            <h1>Course Craft</h1>
+                            <h1 style={{color: "#191414"}}>Course Craft</h1>
                             {/* <svg className="bi" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap" /></svg> */}
                         </a>
                     </div>
@@ -14,7 +14,7 @@ function NavBar() {
                     </form>
                     <div>
                         <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                            <li><a href="#ID" className="nav-link px-2 link-secondary">Dashboard</a></li>
+                            <li><a href="#ID" className="nav-link px-2 link-secondary" style={{color: "#191414"}}>Dashboard</a></li>
                         </ul>
                     </div>
 
