@@ -9,24 +9,27 @@ import { MyProvider } from "./context/LoginContext";
 import CoursePage from "./components/pages/CoursePage";
 import LearningPage from "./components/pages/LearningPage";
 import ProfilePage from "./components/pages/ProfilePage";
+import { ProfileProvider } from "./context/ProfileContext";
 
 
 function App() {
   return (
     <div>
       <MyProvider>
-        <BrowserRouter>
-          <Header />
-          <Routes>
-            <Route path='/' element={<Main />} />
-            <Route path='/secondMain' element={<SecondMain />} />
-            <Route path='/loginPage' element={<LoginPage />} />
-            <Route path='/coursePage' element={<CoursePage />} />
-            <Route path='/learningPage' element={<LearningPage />} />
-            <Route path='/profilePage' element={<ProfilePage />} />
-          </Routes>
-          <Footer />
-        </BrowserRouter>
+        <ProfileProvider>
+          <BrowserRouter>
+            <Header />
+            <Routes>
+              <Route path='/' element={<Main />} />
+              <Route path='/secondMain' element={<SecondMain />} />
+              <Route path='/loginPage' element={<LoginPage />} />
+              <Route path='/coursePage' element={<CoursePage />} />
+              <Route path='/learningPage' element={<LearningPage />} />
+              <Route path='/profilePage' element={<ProfilePage />} />
+            </Routes>
+            <Footer />
+          </BrowserRouter>
+        </ProfileProvider>
       </MyProvider>
     </div>
   );
