@@ -1,7 +1,9 @@
+
+
 function LearningPage() {
     return(
         <>
-        
+            <h1>Learning Page</h1>
         </>
     );
 }

@@ -7,6 +7,8 @@ import SecondMain from "./components/SecondMain";
 import LoginPage from "./components/pages/LoginPage";
 import { MyProvider } from "./context/LoginContext";
 import CoursePage from "./components/pages/CoursePage";
+import LearningPage from "./components/pages/LearningPage";
+import ProfilePage from "./components/pages/ProfilePage";
 
 
 function App() {
@@ -20,6 +22,8 @@ function App() {
             <Route path='/secondMain' element={<SecondMain />} />
             <Route path='/loginPage' element={<LoginPage />} />
             <Route path='/coursePage' element={<CoursePage />} />
+            <Route path='/learningPage' element={<LearningPage />} />
+            <Route path='/profilePage' element={<ProfilePage />} />
           </Routes>
           <Footer />
         </BrowserRouter>
