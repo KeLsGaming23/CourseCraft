@@ -7,6 +7,6 @@ function CoursePage() {
             <CourseBanner />
             <CourseOverview />
         </>
-    ); s
+    );
 }
 export default CoursePage;
