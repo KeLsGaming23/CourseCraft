@@ -2,9 +2,10 @@ import { useContext } from "react";
 import { LoginContext } from "../../context/LoginContext";
 
 function Avatar() {
-    const {setIsLogin} = useContext(LoginContext);
+    const {setIsLogin, setUserRole} = useContext(LoginContext);
     function handleLogout(e){
         e.preventDefault();
+        setUserRole("Not Login")
         setIsLogin(false)
     }
     return (
