@@ -1,4 +1,13 @@
+import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { LoginContext } from "../../context/LoginContext";
+
 function CourseOverview() {
+    const {isEnroll, setIsEnroll} = useContext(LoginContext);
+    const {isLogin, setIsLogin} = useContext(LoginContext);
+    function handleEnrollNow(){
+        alert("Are you sure you want to enroll?");
+    }
     return (
         <>
             <div className="container d-flex justify-content-between">
@@ -49,7 +58,10 @@ function CourseOverview() {
                             <img src="https://cdn.shopify.com/s/files/1/2018/8867/files/play-button.png?422609932170209736" class="card-img-top" alt="..." />
                             <div class="card-body p-3" >
                                 <h5>Course Prize</h5>
-                                <button className="btn btn-primary">Register Course</button>
+                                {isLogin ? <button className="btn btn-primary" onClick={handleEnrollNow}>Go to Course Now</button> : 
+                                <Link to="/loginPage"><button className="btn btn-primary">Enroll Now</button> </Link>}
+                                
+                                
                                 <div className="">
                                     <p>Free Access</p>
                                     <h5>This Course Includes</h5>
