@@ -3,12 +3,9 @@ function LoginRegisterButton() {
     return (
         <>
             <div className="col-md-3 text-end">
-                <button type="button" className="btn btn-outline-primary me-2">
-                    <Link to="/loginPage" 
-                    className="d-inline-flex link-body-emphasis text-decoration-none">
-                        Login
-                    </Link>
-                </button>
+                <a href="http://127.0.0.1:8000/login" type="button" className="btn btn-outline-primary me-2">
+                    login
+                </a>
                 <button type="button" className="btn btn-primary">Sign-up</button>
             </div>
         </>
