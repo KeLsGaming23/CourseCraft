@@ -7,7 +7,7 @@ function Card(props) {
             <div className="col">
                 <div className="card shadow-sm">
                     <Link to="/coursePage" className="d-inline-flex link-body-emphasis text-decoration-none">
-                        <img src={props.image} alt="" />
+                        <img className="bd-placeholder-img card-img-top" width="100%" height="225" src={props.image} alt="" />
                     </Link>
                     <div className="card-body">
                         <Link to="/coursePage" className="d-inline-flex link-body-emphasis text-decoration-none">
