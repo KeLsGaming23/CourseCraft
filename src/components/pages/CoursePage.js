@@ -1,5 +1,5 @@
-import CourseBanner from "../Course/CourseBanner";
-import CourseOverview from "../Course/CourseOverview";
+import CourseBanner from "../CoursePage/CourseBanner";
+import CourseOverview from "../CoursePage/CourseOverview";
 
 function CoursePage() {
     return (
