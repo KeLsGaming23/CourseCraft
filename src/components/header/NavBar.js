@@ -4,10 +4,32 @@ import LoginRegisterButton from "./LoginRegisterButton";
 import { useContext } from "react";
 import { LoginContext } from "../../context/LoginContext";
 
-function NavBar() {
-  const {user} = useContext(LoginContext);
-  if(user!==null){
-    console.log(user.name);
+function NavBar(props) {
+  function logout(){
+    localStorage.clear();
+    props.setUser(null);
+  }
+
+  let buttons;
+  let profile;
+  if (localStorage.getItem('token')) {
+      buttons = (
+          <div>
+                <Link className="nav-link" to="/" onClick={logout} >Logout  </Link>
+          </div>
+      )
+      profile = (
+          <div>
+                <Avatar onClick={props.onClick}/>
+          </div>
+      )
+  } else {
+      buttons = (
+          <div>
+                <LoginRegisterButton />
+          </div>
+      )
+
   }
   return (
     <>
@@ -31,7 +53,8 @@ function NavBar() {
               </li>
             </ul>
           </div>
-          {user!==null ? <Avatar /> : <LoginRegisterButton />}
+          {localStorage.getItem('userName')}{profile}{buttons}
+          {/* {user!==null ? <Avatar /> : <LoginRegisterButton />} */}
         </header>
       </div>
     </>

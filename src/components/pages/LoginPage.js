@@ -1,68 +1,76 @@
-import { useContext, useState } from "react";
-import { LoginContext } from "../../context/LoginContext";
+import React, { useState } from 'react';
+import { Link, Navigate } from 'react-router-dom';
+import axios from 'axios';
 
-function LoginPage() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const {user, setUser} = useContext(LoginContext);
+const LoginPage = (props) => {
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      const response = await fetch("http://127.0.0.1:8000/api/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
-      const data = await response.json();
-      console.log(data);
-      setUser(data.user);
-    } catch (error) {
-      setError("Invalid email or password");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [message, setMessage] = useState('');
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  const formSubmit = (e) => {
+    e.preventDefault();
+    const data = {
+      email: email,
+      password: password
     }
-  };
+
+    axios.post('http://127.0.0.1:8000/api/login', data)
+      .then((response) => {
+        localStorage.setItem('token', response.data.token);
+        localStorage.setItem('userName', response.data.user.name);
+        setLoggedIn(true);
+        props.setUser(response.data.user);
+        console.log(localStorage.getItem('token'));
+        console.log(localStorage.getItem('userName'));
+      })
+      .catch((error) => {
+        setMessage(error.response.data.message);
+      });
+  }
+
+  if (loggedIn || localStorage.getItem('token')) {
+    return <Navigate to={'/'} />
+  }
+
+  let error = "";
+  if (message) {
+    error = (
+      <div>
+        <div className="alert alert-danger" role="alert" >
+          {message}
+        </div>
+      </div>
+    )
+  }
 
   return (
-    <>
-      <div className="text-center">
-        <h2>Login Form</h2>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="username">Email:</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-            required
-          />
-          <br />
-          <br />
-          <br />
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-            required
-          />
-          <br />
-          <br />
-          <div style={{ color: "red" }}>{error}</div>
-          <input type="submit" value="Login" />
-        </form>
-        {user && (
-          <div>
-            Logged in as {user.email}, name: {user.name}
-          </div>
-        )}
+    <div><br></br><br></br>
+      <div className="row">
+        <div className="jumbotron col-lg-4 offset-lg-4">
+          <h3 className="text-center">Login Account</h3>
+
+          <form onSubmit={formSubmit} >
+            {error}
+            <div className="form-group">
+              <label htmlFor="exampleInputEmail1">Email address</label>
+              <input type="email" name="email" className="form-control" required onChange={(e) => { setEmail(e.target.value) }} />
+            </div>
+            <div className="form-group">
+              <label htmlFor="exampleInputPassword1">Password</label>
+              <input type="password" name="password" className="form-control" required onChange={(e) => { setPassword(e.target.value) }} />
+            </div>
+
+            <button type="submit" className="btn btn-primary btn-block">Login</button>
+            <br></br>
+            Forget My Password <Link to="/forget">Click Here</Link>
+          </form>
+
+        </div>
+
       </div>
-    </>
+    </div>
   );
 }
 

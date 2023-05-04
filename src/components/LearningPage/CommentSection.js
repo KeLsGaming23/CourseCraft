@@ -28,7 +28,7 @@ function CommentSection() {
     }
 
 
-    function handleComment() {
+    function handleComment(e) {
         e.preventDefault();
         alert('comment');
     }
