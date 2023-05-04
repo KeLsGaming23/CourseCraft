@@ -29,9 +29,6 @@ function Suggested() {
                                 />
                             ))
                         }
-                        <Card />
-                        <Card />
-                        <Card />
                     </div>
                 </div>
             </div>

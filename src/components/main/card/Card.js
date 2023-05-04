@@ -11,16 +11,16 @@ function Card(props) {
                     </Link>
                     <div className="card-body">
                         <Link to="/coursePage" className="d-inline-flex link-body-emphasis text-decoration-none">
-                            <h5 class="card-title">{props.title}</h5>
+                            <h5 className="card-title">{props.title}</h5>
                         </Link>
                         <p className="card-text">{props.description}</p>
                         <div className="d-flex justify-content-between align-items-center">
                             <div className="btn-group">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
+                                <i className="fa-solid fa-star"></i>
+                                <i className="fa-solid fa-star"></i>
+                                <i className="fa-solid fa-star"></i>
+                                <i className="fa-solid fa-star"></i>
+                                <i className="fa-solid fa-star"></i>
                             </div>
                             <small className="text-body-secondary">Free/Paid</small>
                         </div>
