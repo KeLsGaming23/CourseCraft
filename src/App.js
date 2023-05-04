@@ -10,6 +10,7 @@ import CoursePage from "./components/pages/CoursePage";
 import LearningPage from "./components/pages/LearningPage";
 import ProfilePage from "./components/pages/ProfilePage";
 import { ProfileProvider } from "./context/ProfileContext";
+import { CourseProvider } from "./context/CourseContext";
 
 
 function App() {
@@ -17,18 +18,20 @@ function App() {
     <div>
       <MyProvider>
         <ProfileProvider>
-          <BrowserRouter>
-            <Header />
-            <Routes>
-              <Route path='/' element={<Main />} />
-              <Route path='/secondMain' element={<SecondMain />} />
-              <Route path='/loginPage' element={<LoginPage />} />
-              <Route path='/coursePage' element={<CoursePage />} />
-              <Route path='/learningPage' element={<LearningPage />} />
-              <Route path='/profilePage' element={<ProfilePage />} />
-            </Routes>
-            <Footer />
-          </BrowserRouter>
+          <CourseProvider>
+            <BrowserRouter>
+              <Header />
+              <Routes>
+                <Route path='/' element={<Main />} />
+                <Route path='/secondMain' element={<SecondMain />} />
+                <Route path='/loginPage' element={<LoginPage />} />
+                <Route path='/coursePage' element={<CoursePage />} />
+                <Route path='/learningPage' element={<LearningPage />} />
+                <Route path='/profilePage' element={<ProfilePage />} />
+              </Routes>
+              <Footer />
+            </BrowserRouter>
+          </CourseProvider>
         </ProfileProvider>
       </MyProvider>
     </div>

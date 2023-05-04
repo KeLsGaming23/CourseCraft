@@ -5,7 +5,7 @@ import Suggested from "./main/Suggested";
 
 function Main() {
     return (
-        <>  
+        <>
             <HeroBanner />
             <Suggested />
             <OfferCourse />
