@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { LoginContext } from "../../context/LoginContext";
+import { CourseContext } from "../../context/CourseContext";
 
-function CourseOverview() {
-    const { isEnroll, setIsEnroll } = useContext(LoginContext);
-    const { isLogin, setIsLogin } = useContext(LoginContext);
+function CourseOverview(overview) {
+
+    const { isEnroll, setIsEnroll, isLogin, setIsLogin } = useContext(LoginContext);
+    const { selectedCourse } = useContext(CourseContext);
+
     function handleEnrollNow() {
         alert("Are you sure you want to enroll?");
     }
@@ -42,17 +45,17 @@ function CourseOverview() {
 
                     <div className="">
                         <h1>Instructor</h1>
-                        <p>Instructor Name</p>
-                        <p>Instructor specialities</p>
+                        <p>{overview.name}</p>
+                        <p>{overview.specialities}</p>
                         <img
-                            style={{ width: "80px", hight: "80px", borderRadius: "50%" }}
-                            src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+                            style={{ width: "100px", hight: "100px", borderRadius: "50%", objectFit: "fill" }}
+                            src={overview.image}
                         />
                         <p>Instructor Desciption</p>
                     </div>
                 </div>
 
-                <div className="" style={{ width: "40%", position: "absolute", top: "30%", left: "60%" }}>
+                <div className="" >
                     <div className="">
                         <div class="card" style={{ width: "18rem" }}>
                             <img src="https://cdn.shopify.com/s/files/1/2018/8867/files/play-button.png?422609932170209736" class="card-img-top" alt="..." />
