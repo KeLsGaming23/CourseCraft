@@ -15,6 +15,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ErrorPage from "./components/pages/ErrorPage";
 import RegisterPage from "./components/pages/RegisterPage";
+import NewCourse from "./components/pages/NewCourse";
+import NewCourseCreated from "./components/pages/NewCourseCreated";
 
 function App() {
   const [user, setUser] = useState({});
@@ -52,6 +54,8 @@ function App() {
                 <Route path='/coursePage' element={<CoursePage />} />
                 <Route path='/learningPage' element={<LearningPage />} />
                 <Route path='/profilePage' element={<ProfilePage />} />
+                <Route path='/newCourse' element={<NewCourse />} />
+                <Route path='/newCourseCreated' element={<NewCourseCreated />} />
                 <Route path='/ErrorPage' element={<ErrorPage />} />
               </Routes>
               <Footer />

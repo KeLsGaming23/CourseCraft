@@ -111,7 +111,7 @@ function RegisterPage(props) {
                             Register
                         </button>
                         <br></br>
-                        Have an Account? <Link to='/login'>Login Here</Link>
+                        Have an Account? <Link to='/loginPage'>Login Here</Link>
                         <br></br>
                         Forget My Password <Link to='/forget'>Click Here</Link>
                     </form>
