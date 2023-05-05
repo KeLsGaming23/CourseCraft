@@ -13,15 +13,23 @@ import { CourseProvider } from "./context/CourseContext";
 import NavBar from "./components/header/NavBar";
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import ErrorPage from "./components/pages/ErrorPage";
 
 function App() {
   const [user, setUser] = useState({});
-
+  let token = localStorage.getItem('token');
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:8000/api/user');
-        setUser(response.data);
+        if (token){
+          const response = await axios.get('http://127.0.0.1:8000/api/user',{
+            headers:{
+              Authorization: `Bearer ${token}`
+            }
+          });
+          console.log(response.data);
+          setUser(response.data);
+        }
       } catch (error) {
         console.log(error);
       }
@@ -34,7 +42,7 @@ function App() {
         <ProfileProvider>
           <CourseProvider>
             <BrowserRouter>
-              <NavBar />
+              <NavBar setUser={setUser}/>
               <Routes>
                 <Route path='/' element={<Main />} />
                 <Route path='/secondMain' element={<SecondMain />} />
@@ -42,6 +50,7 @@ function App() {
                 <Route path='/coursePage' element={<CoursePage />} />
                 <Route path='/learningPage' element={<LearningPage />} />
                 <Route path='/profilePage' element={<ProfilePage />} />
+                <Route path='/ErrorPage' element={<ErrorPage />} />
               </Routes>
               <Footer />
             </BrowserRouter>

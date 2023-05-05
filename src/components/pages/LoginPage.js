@@ -20,16 +20,20 @@ const LoginPage = (props) => {
       .then((response) => {
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('userName', response.data.user.name);
+        localStorage.setItem('role', response.data.user.role);
         setLoggedIn(true);
         props.setUser(response.data.user);
         console.log(localStorage.getItem('token'));
         console.log(localStorage.getItem('userName'));
+        console.log(localStorage.getItem('role'));
       })
       .catch((error) => {
         setMessage(error.response.data.message);
       });
   }
-
+  if (localStorage.getItem('token') && localStorage.getItem('role') === '0') {
+    return <Navigate to={'/ErrorPage'} />
+  }
   if (loggedIn || localStorage.getItem('token')) {
     return <Navigate to={'/'} />
   }
