@@ -6,7 +6,9 @@ function LoginRegisterButton() {
                 <Link to="/loginPage" type="button" className="btn btn-outline-primary me-2">
                     login
                 </Link>
-                <button type="button" className="btn btn-primary">Sign-up</button>
+                <Link to="/registerPage" type="button" className="btn btn-primary me-2">
+                    Register
+                </Link>
             </div>
         </>
     );

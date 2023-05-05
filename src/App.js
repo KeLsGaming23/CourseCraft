@@ -14,6 +14,7 @@ import NavBar from "./components/header/NavBar";
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ErrorPage from "./components/pages/ErrorPage";
+import RegisterPage from "./components/pages/RegisterPage";
 
 function App() {
   const [user, setUser] = useState({});
@@ -35,7 +36,7 @@ function App() {
       }
     };
     fetchUser();
-  }, []);
+  }, [token]);
   return (
     <div>
       <MyProvider>
@@ -47,6 +48,7 @@ function App() {
                 <Route path='/' element={<Main />} />
                 <Route path='/secondMain' element={<SecondMain />} />
                 <Route path='/loginPage' element={<LoginPage user={user} setUser={setUser}/>} />
+                <Route path='/registerPage' element={<RegisterPage user={user} setUser={setUser} />  }  />  
                 <Route path='/coursePage' element={<CoursePage />} />
                 <Route path='/learningPage' element={<LearningPage />} />
                 <Route path='/profilePage' element={<ProfilePage />} />
