@@ -1,27 +1,41 @@
 import Card from "./card/Card";
 import data from "./course.json";
-import { useEffect, useContext } from "react";
+import { useEffect, useContext, useState } from "react";
 import { CourseContext } from "../../context/CourseContext";
 import { useNavigate } from "react-router-dom";
-
+import axios from 'axios';
+import { LoginContext } from "../../context/LoginContext";
 
 function Suggested() {
-
+    const [courseData, setCourseData] = useState([]);
+    const { selectedCourse, setSelectedCourse } = useContext(CourseContext);
     const navigate = useNavigate();
-    const { courseData, setCourseData,
-        selectedCourse, setSelectedCourse
-    } = useContext(CourseContext);
-
+    let token = localStorage.getItem('token');
     useEffect(() => {
-        const { courses } = data;
-        setCourseData(courses);
-    }, [setCourseData]);
-
+        const fetchUser = async () => {
+            try {
+                if (token) {
+                    const response = await axios.get('http://127.0.0.1:8000/api/get/course', {
+                        headers: {
+                            Authorization: `Bearer ${token}`
+                        }
+                    });
+                    setCourseData(response.data);
+                    localStorage.setItem('course_data', response.data);
+                }
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        fetchUser();
+    }, [token, setCourseData]);
     function handleCourse(course) {
         setSelectedCourse(course);
+        localStorage.setItem('courseSelected', selectedCourse);
+        console.log(selectedCourse);
         navigate('./coursePage');
     }
-
+    
     return (
         <>
             <div className="album py-5 bg-body-tertiary">
@@ -36,10 +50,11 @@ function Suggested() {
                                     className="col"
                                     onClick={() => handleCourse(course)}
                                 >
-                                    <Card key={index}
-                                        title={course.name}
-                                        image={course.image}
-                                        description={course.description}
+                                    <Card 
+                                        key={index}
+                                        title={course.course_title}
+                                        image={course.course_thumbnail}
+                                        description={course.course_description}
                                     />
                                 </div>
                             ))
