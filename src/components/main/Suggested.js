@@ -31,11 +31,10 @@ function Suggested() {
     }, [token, setCourseData]);
     function handleCourse(course) {
         setSelectedCourse(course);
-        localStorage.setItem('courseSelected', selectedCourse);
-        console.log(selectedCourse);
+        localStorage.setItem('course', JSON.stringify(course));
         navigate('./coursePage');
     }
-    
+
     return (
         <>
             <div className="album py-5 bg-body-tertiary">
@@ -50,7 +49,7 @@ function Suggested() {
                                     className="col"
                                     onClick={() => handleCourse(course)}
                                 >
-                                    <Card 
+                                    <Card
                                         key={index}
                                         title={course.course_title}
                                         image={course.course_thumbnail}
