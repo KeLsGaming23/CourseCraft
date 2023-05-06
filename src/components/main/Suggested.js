@@ -1,38 +1,29 @@
 import Card from "./card/Card";
-import data from "./course.json";
 import { useEffect, useContext, useState } from "react";
 import { CourseContext } from "../../context/CourseContext";
 import { useNavigate } from "react-router-dom";
-import axios from 'axios';
-import { LoginContext } from "../../context/LoginContext";
 
 function Suggested() {
     const [courseData, setCourseData] = useState([]);
-    const { selectedCourse, setSelectedCourse } = useContext(CourseContext);
+    const { setSelectedCourse } = useContext(CourseContext);
     const navigate = useNavigate();
-    let token = localStorage.getItem('token');
+
     useEffect(() => {
-        const fetchUser = async () => {
-            try {
-                if (token) {
-                    const response = await axios.get('http://127.0.0.1:8000/api/get/course', {
-                        headers: {
-                            Authorization: `Bearer ${token}`
-                        }
-                    });
-                    setCourseData(response.data);
-                    localStorage.setItem('course_data', response.data);
-                }
-            } catch (error) {
-                console.log(error);
-            }
-        };
-        fetchUser();
-    }, [token, setCourseData]);
+        fetch('http://127.0.0.1:8000/api/get/course')
+            .then(res => res.json())
+            .then(data => {
+                setCourseData(data);
+            })
+
+    }, [setCourseData]);
+
     function handleCourse(course) {
         setSelectedCourse(course);
         localStorage.setItem('course', JSON.stringify(course));
-        navigate('./coursePage');
+        window.scrollTo(0, 0);
+        setTimeout(() => {
+            navigate('./coursePage');
+        }, 1500);
     }
 
     return (
@@ -46,7 +37,6 @@ function Suggested() {
                             courseData.map((course, index) => (
                                 <div
                                     key={course.id}
-                                    className="col"
                                     onClick={() => handleCourse(course)}
                                 >
                                     <Card
