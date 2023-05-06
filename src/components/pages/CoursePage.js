@@ -7,17 +7,23 @@ function CoursePage() {
 
     const { selectedCourse } = useContext(CourseContext);
 
+    // for embeding video
+    const link = selectedCourse.course_introduction;
+    let newLink = link.replace('watch?v=', 'embed/');
+    const videoLink = newLink + '?autoplay=1';
+
     return (
         <>
             <CourseBanner
-                title={selectedCourse.name}
-                description={selectedCourse.description}
-                image={selectedCourse.image}
+                title={selectedCourse.course_title}
+                description={selectedCourse.course_description}
+                image={selectedCourse.course_thumbnail}
             />
             <CourseOverview
                 name={selectedCourse.instructorName}
                 specialities={selectedCourse.instructorSpecialities}
                 image={selectedCourse.instructorImage}
+                video={videoLink}
             />
         </>
     );
