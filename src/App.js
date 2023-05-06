@@ -17,6 +17,7 @@ import ErrorPage from "./components/pages/ErrorPage";
 import RegisterPage from "./components/pages/RegisterPage";
 import NewCourse from "./components/pages/NewCourse";
 import NewCourseCreated from "./components/pages/NewCourseCreated";
+import CreateTopic from "./components/pages/CreateTopic";
 
 function App() {
   const [user, setUser] = useState({});
@@ -56,6 +57,7 @@ function App() {
                 <Route path='/profilePage' element={<ProfilePage />} />
                 <Route path='/newCourse' element={<NewCourse />} />
                 <Route path='/newCourseCreated' element={<NewCourseCreated />} />
+                <Route path='/createTopic' element={<CreateTopic />} />
                 <Route path='/ErrorPage' element={<ErrorPage />} />
               </Routes>
               <Footer />
