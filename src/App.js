@@ -26,9 +26,9 @@ function App() {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        if (token){
-          const response = await axios.get('http://127.0.0.1:8000/api/user',{
-            headers:{
+        if (token) {
+          const response = await axios.get('http://127.0.0.1:8000/api/user', {
+            headers: {
               Authorization: `Bearer ${token}`
             }
           });
@@ -47,13 +47,14 @@ function App() {
         <ProfileProvider>
           <CourseProvider>
             <BrowserRouter>
-              <NavBar setUser={setUser}/>
+              <NavBar setUser={setUser} />
               <Routes>
                 <Route path='/' element={<Main />} />
                 <Route path='/secondMain' element={<SecondMain />} />
-                <Route path='/loginPage' element={<LoginPage user={user} setUser={setUser}/>} />
-                <Route path='/registerPage' element={<RegisterPage user={user} setUser={setUser} />  }  />  
+                <Route path='/loginPage' element={<LoginPage user={user} setUser={setUser} />} />
+                <Route path='/registerPage' element={<RegisterPage user={user} setUser={setUser} />} />
                 <Route path='/coursePage' element={<CoursePage />} />
+                <Route path='/search/coursePage' element={<CoursePage />} />
                 <Route path='/learningPage' element={<LearningPage />} />
                 <Route path='/profilePage' element={<ProfilePage />} />
                 <Route path='/newCourse' element={<NewCourse />} />
