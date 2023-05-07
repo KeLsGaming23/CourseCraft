@@ -1,11 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Avatar from "./Avatar";
 import LoginRegisterButton from "./LoginRegisterButton";
-import { useContext } from "react";
-import { LoginContext } from "../../context/LoginContext";
+import { useContext, useState } from "react";
+import { CourseContext } from "../../context/CourseContext";
 
 function NavBar(props) {
-  function logout(){
+  const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
+  const { setResult } = useContext(CourseContext);
+  function logout() {
     localStorage.clear();
     props.setUser(null);
   }
@@ -13,24 +16,36 @@ function NavBar(props) {
   let buttons;
   let profile;
   if (localStorage.getItem('token')) {
-      buttons = (
-          <div>
-                <Link className="nav-link" to="/" onClick={logout} >Logout  </Link>
-          </div>
-      )
-      profile = (
-          <div>
-                <Avatar onClick={props.onClick}/>
-          </div>
-      )
+    buttons = (
+      <div>
+        <Link className="nav-link" to="/" onClick={logout} >Logout  </Link>
+      </div>
+    )
+    profile = (
+      <div>
+        <Avatar onClick={props.onClick} />
+      </div>
+    )
   } else {
-      buttons = (
-          <div>
-                <LoginRegisterButton />
-          </div>
-      )
+    buttons = (
+      <div>
+        <LoginRegisterButton />
+      </div>
+    )
 
   }
+  const handleSearch = async (event) => {
+    event.preventDefault();
+
+    const response = await fetch("http://127.0.0.1:8000/api/get/course");
+    const data = await response.json();
+    const filteredResults = data.filter((result) =>
+      result.course_title.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    setResult(filteredResults);
+    console.log(filteredResults);
+    navigate('/search');
+  };
   return (
     <>
       <div className="container">
@@ -41,8 +56,10 @@ function NavBar(props) {
               {/* <svg className="bi" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap" /></svg> */}
             </Link>
           </div>
-          <form className="col-sm-5 col-lg mb-3 mb-lg-0 me-lg-3" role="search">
-            <input type="search" className="form-control form-control-secondary" placeholder="Search..." aria-label="Search" />
+          {/* Search Bar */}
+          <form onSubmit={handleSearch}>
+            <input type="text" value={searchQuery} onChange={(event) => setSearchQuery(event.target.value)} />
+            <button type="submit">Search</button>
           </form>
           <div>
             <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
@@ -55,6 +72,7 @@ function NavBar(props) {
           </div>
           {localStorage.getItem('userName')}{profile}{buttons}
           {/* {user!==null ? <Avatar /> : <LoginRegisterButton />} */}
+          {/* Render SearchResults component if there are results */}
         </header>
       </div>
     </>

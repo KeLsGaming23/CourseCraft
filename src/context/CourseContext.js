@@ -11,12 +11,14 @@ export const CourseProvider = (props) => {
 
     const [courseData, setCourseData] = useState([]);
     const [selectedCourse, setSelectedCourse] = useState(getInitialState);
+    const [result, setResult] = useState([]);
 
     return (
         <>
             <CourseContext.Provider value={{
                 courseData, setCourseData,
                 selectedCourse, setSelectedCourse,
+                result, setResult
             }}>
                 {props.children}
             </CourseContext.Provider>
