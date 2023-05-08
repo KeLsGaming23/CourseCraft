@@ -102,7 +102,7 @@ function CourseOverview(overview) {
                         <div className="card-body p-3 text-center" >
                             <h5>Free Access</h5>
                             {isLogin ? <button className="btn btn-primary" onClick={handleEnrollNow}>Go to Course Now</button> :
-                                <Link to="/loginPage"><button className="btn btn-primary">Enroll Now</button> </Link>}
+                                <Link to="/learningPage"><button className="btn btn-primary">Enroll Now</button> </Link>}
                         </div>
                     </div>
                 </div>
