@@ -54,7 +54,6 @@ function App() {
                 <Route path='/loginPage' element={<LoginPage user={user} setUser={setUser} />} />
                 <Route path='/registerPage' element={<RegisterPage user={user} setUser={setUser} />} />
                 <Route path='/coursePage' element={<CoursePage />} />
-                <Route path='/search/coursePage' element={<CoursePage />} />
                 <Route path='/learningPage' element={<LearningPage />} />
                 <Route path='/profilePage' element={<ProfilePage />} />
                 <Route path='/newCourse' element={<NewCourse />} />

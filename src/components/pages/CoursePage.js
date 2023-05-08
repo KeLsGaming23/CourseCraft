@@ -2,6 +2,7 @@ import { useContext } from "react";
 import CourseBanner from "../CoursePage/CourseBanner";
 import CourseOverview from "../CoursePage/CourseOverview";
 import { CourseContext } from "../../context/CourseContext";
+import Discover from "../main/Discover";
 
 function CoursePage() {
 
@@ -25,6 +26,7 @@ function CoursePage() {
                 image={selectedCourse.instructorImage}
                 video={videoLink}
             />
+            <Discover />
         </>
     );
 }

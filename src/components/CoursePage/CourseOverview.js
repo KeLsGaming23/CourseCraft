@@ -1,13 +1,15 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { LoginContext } from "../../context/LoginContext";
+import { CourseContext } from "../../context/CourseContext";
 
 function CourseOverview(overview) {
 
     const { isEnroll, setIsEnroll, isLogin, setIsLogin } = useContext(LoginContext);
+    const { selectedCourse } = useContext(CourseContext);
 
-    function handleEnrollNow() {
-        alert("Are you sure you want to enroll?");
+    function handleEnroll() {
+        console.log(selectedCourse);
     }
     return (
         <>
@@ -101,8 +103,8 @@ function CourseOverview(overview) {
                         </iframe>
                         <div className="card-body p-3 text-center" >
                             <h5>Free Access</h5>
-                            {isLogin ? <button className="btn btn-primary" onClick={handleEnrollNow}>Go to Course Now</button> :
-                                <Link to="/loginPage"><button className="btn btn-primary">Enroll Now</button> </Link>}
+                            {isLogin ? <button className="btn btn-primary">Go to Course Now</button> :
+                                <Link to="/loginPage"><button className="btn btn-primary" onClick={handleEnroll}>Enroll Now</button> </Link>}
                         </div>
                     </div>
                 </div>

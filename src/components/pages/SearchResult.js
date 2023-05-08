@@ -9,7 +9,7 @@ function SearchResult() {
 
     function handleSelecteCourse(results) {
         setSelectedCourse(results);
-        navigate('./coursePage');
+        navigate('/coursePage');
     }
 
     return (

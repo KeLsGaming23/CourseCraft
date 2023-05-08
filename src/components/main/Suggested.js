@@ -14,7 +14,6 @@ function Suggested() {
             .then(data => {
                 setCourseData(data);
             })
-
     }, [setCourseData]);
 
     function handleCourse(course) {

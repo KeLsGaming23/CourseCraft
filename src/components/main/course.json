@@ -2,9 +2,10 @@
     "courses": [
         {
             "id": 1,
-            "name": "Programming",
-            "description": "Programming involves tasks such as analysis, generating algorithms, profiling algorithms' accuracy and resource consumption, and the implementation of algorithms",
-            "image": "https://www.freecodecamp.org/news/content/images/size/w1000/2022/12/main-image.png",
+            "course_title": "Programming",
+            "course_description": "Programming involves tasks such as analysis, generating algorithms, profiling algorithms' accuracy and resource consumption, and the implementation of algorithms",
+            "course_thumbnail": "https://www.freecodecamp.org/news/content/images/size/w1000/2022/12/main-image.png",
+            "course_introduction": "https://www.youtube.com/watch?v=ntgUnY6U2KM",
             "price": "free/paid",
             "instructorName": "John Doe",
             "instructorSpecialities": "Python Programmer",
@@ -12,9 +13,10 @@
         },
         {
             "id": 2,
-            "name": "Web Development",
-            "description": "Web development, also known as website development, refers to the tasks associated with creating, building, and maintaining websites and web applications that run online on a browser. It may, however, also include web design, web programming, and database management.",
-            "image": "https://media.geeksforgeeks.org/wp-content/cdn-uploads/20221222184908/web-development1.png",
+            "course_title": "Web Development",
+            "course_description": "Web development, also known as website development, refers to the tasks associated with creating, building, and maintaining websites and web applications that run online on a browser. It may, however, also include web design, web programming, and database management.",
+            "course_thumbnail": "https://media.geeksforgeeks.org/wp-content/cdn-uploads/20221222184908/web-development1.png",
+            "course_introduction": "https://www.youtube.com/watch?v=MY6ZZIn93V8",
             "price": "free/paid",
             "instructorName": "Jane Doe",
             "instructorSpecialities": "Full-Stack Developer",
@@ -22,10 +24,11 @@
         },
         {
             "id": 3,
-            "name": "React-JS",
-            "description": "React is a free and open-source front-end JavaScript library for building user interfaces based on components. It is maintained by Meta and a community of individual developers and companies.",
-            "image": "https://assets.toptal.io/images?url=https://bs-uploads.toptal.io/blackfish-uploads/components/blog_post_page/content/cover_image_file/cover_image/1129961/retina_500x200_0521-react-redux-and-immutablejs-Waldek_Newsletter-993b50f4ae56e9ee6e024a309c23a6c4.png",
+            "course_title": "React-JS",
+            "course_description": "React is a free and open-source front-end JavaScript library for building user interfaces based on components. It is maintained by Meta and a community of individual developers and companies.",
+            "course_thumbnail": "https://assets.toptal.io/images?url=https://bs-uploads.toptal.io/blackfish-uploads/components/blog_post_page/content/cover_image_file/cover_image/1129961/retina_500x200_0521-react-redux-and-immutablejs-Waldek_Newsletter-993b50f4ae56e9ee6e024a309c23a6c4.png",
             "price": "free/paid",
+            "course_introduction": "https://www.youtube.com/watch?v=tIdNeoHniEY",
             "instructorName": "Jane Doe",
             "instructorSpecialities": "Full-Stack Developer",
             "instructorImage": "https://res.cloudinary.com/practicaldev/image/fetch/s--sdk45cXQ--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/7etabb7gkw395mfvj3gi.png"
