@@ -42,7 +42,9 @@ function Avatar() {
                         <Link to="/newCourse" className="dropdown-item" href="#ID">New Course</Link> :
                         <a className="dropdown-item" href="#ID">Student Portal</a>
                         }</li>
-                    <li><a className="dropdown-item" href="#ID">Settings</a></li>
+                    <li>
+                    <Link to="/newCourseCreated" className="dropdown-item" href="#ID">Add new topic</Link>
+                    </li>
                     <li><a className="dropdown-item" href="#ID">Profile</a></li>
                     <li><hr className="dropdown-divider" /></li>
                     <li><a className="dropdown-item" onClick={handleSignOut} >Sign out</a></li>
