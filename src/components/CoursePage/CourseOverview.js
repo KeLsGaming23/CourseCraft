@@ -8,9 +8,6 @@ function CourseOverview(overview) {
     const { isEnroll, setIsEnroll, isLogin, setIsLogin } = useContext(LoginContext);
     const { selectedCourse } = useContext(CourseContext);
 
-    function handleEnroll() {
-        console.log(selectedCourse);
-    }
     return (
         <>
             <div className="container d-flex justify-content-center gap-5">
@@ -103,7 +100,7 @@ function CourseOverview(overview) {
                         </iframe>
                         <div className="card-body p-3 text-center" >
                             <h5>Free Access</h5>
-                            {isLogin ? <button className="btn btn-primary" onClick={handleEnrollNow}>Go to Course Now</button> :
+                            {isLogin ? <button className="btn btn-primary">Go to Course Now</button> :
                                 <Link to="/learningPage"><button className="btn btn-primary">Enroll Now</button> </Link>}
                         </div>
                     </div>
