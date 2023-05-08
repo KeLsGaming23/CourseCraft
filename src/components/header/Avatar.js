@@ -43,8 +43,7 @@ function Avatar() {
                         <a className="dropdown-item" href="#ID">Student Portal</a>
                         }</li>
                     <li>
-                    <Link to="/newCourseCreated" className="dropdown-item" href="#ID">New Course</Link> :
-                        <a className="dropdown-item" href="#ID">Add New Topic</a>
+                    <Link to="/newCourseCreated" className="dropdown-item" href="#ID">Add new topic</Link>
                     </li>
                     <li><a className="dropdown-item" href="#ID">Profile</a></li>
                     <li><hr className="dropdown-divider" /></li>
