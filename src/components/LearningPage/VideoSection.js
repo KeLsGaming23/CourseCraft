@@ -1,11 +1,12 @@
-function VideoSection() {
+function VideoSection(props) {
+    console.log(props.topic_video);
     return (
         <>
             <div style={{ width: "100%" }}>
                 <div className="" style={{ position: "relative", paddingBottom: "56.25%", paddingTop: "35px", height: "0", overflow: "hidden" }}>
                     <iframe width="700"
                         height="500"
-                        src="https://www.youtube.com/embed/BTgqlbvkXDQ"
+                        src={props.topic_video}
                         title="YouTube video player"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowFullScreen
