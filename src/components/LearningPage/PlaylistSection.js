@@ -1,12 +1,12 @@
 
 function PlaylistSection(props) {
-
-    function handlePlaylist() {
-        alert('clicked');
+    
+    function handlePlaylist(topic) {
+        let youtubeLink = topic.topic_video;
+        let replaceVideoLink = youtubeLink.replace("watch?v=", "embed/");
+        localStorage.setItem('youtubelink', replaceVideoLink);
+        console.log(replaceVideoLink);
     }
-    console.log("hello");
-    console.log(props.topics);
-    console.log("world");
     return (
         <>
             <div className="overflow-auto" style={{ height: "470px", maxHeight: "470px", width: "300px" }}>
@@ -14,9 +14,9 @@ function PlaylistSection(props) {
                     <div className="">
                         {props.topics.map((topic, index) => (
                             <div
-                                key={index}
+                                key={topic.id}
                                 className="d-flex align-items-center gap-2"
-                                onClick={handlePlaylist}
+                                onClick={() => handlePlaylist(topic)}
                                 style={{ border: "2px solid gray" }}
                             >
                                 <img
