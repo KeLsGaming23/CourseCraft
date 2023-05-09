@@ -13,18 +13,25 @@ export const CourseProvider = (props) => {
         const course = localStorage.getItem('course')
         return course ? JSON.parse(course) : []
     }
-
-    const [result, setResult] = useState([]);
+    function getCurrentYoutubeVideo() {
+        const youtubeLink = localStorage.getItem('youtubeLink')
+        return youtubeLink;
+    }
     const [courseData, setCourseData] = useState([]);
-    // const [enrolledCourses, setEnrolledCourses] = useState([]);
     const [selectedCourse, setSelectedCourse] = useState(getInitialState);
+    const [result, setResult] = useState([]);
+    const [currentCourse, setCurrentCourse] = useState([]);
+    const [currentVideo, setCurrentVideo] = useState(getCurrentYoutubeVideo);
 
     return (
         <>
             <CourseContext.Provider value={{
                 result, setResult,
                 courseData, setCourseData,
-                selectedCourse, setSelectedCourse
+                selectedCourse, setSelectedCourse,
+                result, setResult,
+                currentCourse, setCurrentCourse,
+                currentVideo, setCurrentVideo
             }}>
                 {props.children}
             </CourseContext.Provider>
