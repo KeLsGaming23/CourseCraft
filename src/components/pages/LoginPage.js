@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import axios from 'axios';
+import { LoginContext } from '../../context/LoginContext';
 
 const LoginPage = (props) => {
 
@@ -8,6 +9,7 @@ const LoginPage = (props) => {
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
   const [loggedIn, setLoggedIn] = useState(false);
+  const { setIsLogin } = useContext(LoginContext);
 
   const formSubmit = (e) => {
     e.preventDefault();
@@ -22,6 +24,7 @@ const LoginPage = (props) => {
         localStorage.setItem('userName', response.data.user.name);
         localStorage.setItem('role', response.data.user.role);
         setLoggedIn(true);
+        setIsLogin(true);
         props.setUser(response.data.user);
         console.log(localStorage.getItem('token'));
         console.log(localStorage.getItem('userName'));

@@ -7,15 +7,20 @@ export const MyProvider = (props) => {
     const [isEnroll, setIsEnroll] = useState(false);
     const [userRole, setUserRole] = useState("Not Login");
     const [user, setUser] = useState(null);
-    return(
+
+    const [loggedUser, setUserLogged] = useState({});
+
+    return (
         <>
-            <LoginContext.Provider value={{ 
+            <LoginContext.Provider value={{
                 isLogin, setIsLogin,
                 redirectFromHome, setRedirectFromHome,
                 isEnroll, setIsEnroll,
                 userRole, setUserRole,
-                user, setUser }}>
-            {props.children}
+                user, setUser,
+                loggedUser, setUserLogged,
+            }}>
+                {props.children}
             </LoginContext.Provider>
         </>
     );

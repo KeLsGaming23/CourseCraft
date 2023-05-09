@@ -1,12 +1,89 @@
-import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
 import { LoginContext } from "../../context/LoginContext";
 import { CourseContext } from "../../context/CourseContext";
+import axios from "axios";
 
 function CourseOverview(overview) {
 
-    const { isEnroll, setIsEnroll, isLogin, setIsLogin } = useContext(LoginContext);
+    const navigate = useNavigate();
+    const { isEnroll, setIsEnroll } = useContext(LoginContext);
     const { selectedCourse } = useContext(CourseContext);
+
+    const [state, setState] = useState([]);
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        const ListOfCourses = async () => {
+            try {
+                if (token) {
+                    const response = await axios.get('http://127.0.0.1:8000/api/enrolledCourses', {
+                        headers: {
+                            Authorization: `Bearer ${token}`
+                        }
+                    });
+                    setState(response.data);
+                }
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        ListOfCourses();
+    }, []);
+
+    console.log(selectedCourse);
+
+    useEffect(() => {
+        const coursedetails = state.map(course => course.id)
+        for (let i = 0; i <= coursedetails.length; i++) {
+            if (coursedetails[i] === selectedCourse.id) {
+                setIsEnroll(true);
+                console.log(coursedetails);
+            }
+        }
+        // for (let course of coursedetails) {
+        //     console.log(course);
+        //     // to check if the user is already enrolled to the course
+        //     if (course == selectedCourse.id) {
+        //         setIsEnroll(true);
+        //         // for instructor access
+        //     } else if (localStorage.getItem('role') === '2') {
+        //         setIsEnroll(true);
+        //     } else {
+        //         setIsEnroll(false);
+        //     }
+
+        // }
+    }, [setIsEnroll]);
+
+    function handleEnroll() {
+        const config = {};
+        const token = localStorage.getItem('token');
+        if (token) {
+            config.headers = {
+                Authorization: `Bearer ${token}`,
+            };
+        }
+        const data = { course_id: selectedCourse.id };
+        axios.post('http://127.0.0.1:8000/api/enrollCourse/{course_id}', data, config)
+            .then((response) => {
+                console.log(response);
+                alert(`Successfully Enrolled ${selectedCourse.course_title}`);
+                setIsEnroll(true);
+            })
+            .catch((error) => {
+                alert('You need to login to enroll');
+                console.log(error);
+                window.scrollTo(0, 0);
+                setTimeout(() => {
+                    navigate('/loginPage');
+                }, 1500);
+            });
+    }
+
+    function handleGoToCourse() {
+        navigate('/learningPage');
+    }
 
     return (
         <>
@@ -100,8 +177,10 @@ function CourseOverview(overview) {
                         </iframe>
                         <div className="card-body p-3 text-center" >
                             <h5>Free Access</h5>
-                            {isLogin ? <button className="btn btn-primary">Go to Course Now</button> :
-                                <Link to="/learningPage"><button className="btn btn-primary">Enroll Now</button> </Link>}
+                            {isEnroll ?
+                                <button className="btn btn-primary" onClick={handleEnroll}>Enroll Now</button> :
+                                <button className="btn btn-primary" onClick={handleGoToCourse}>Go to Course Now</button>
+                            }
                         </div>
                     </div>
                 </div>

@@ -21,9 +21,10 @@ function LearningPage() {
     return (
         <>
             <div className="container">
+                <h1>Student Name: </h1>
                 <div className="d-flex justify-content-center">
                     <div className="" style={{ width: "60%" }}>
-                        <VideoSection video={topics}/>
+                        <VideoSection video={topics} />
                         <CommentSection />
                     </div>
                     <div className="">

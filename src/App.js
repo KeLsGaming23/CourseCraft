@@ -19,6 +19,7 @@ import NewCourse from "./components/pages/NewCourse";
 import NewCourseCreated from "./components/pages/NewCourseCreated";
 import CreateTopic from "./components/pages/CreateTopic";
 import SearchResult from "./components/pages/SearchResult";
+import StudentCourse from "./components/pages/StudentCourse";
 
 function App() {
   const [user, setUser] = useState({});
@@ -61,6 +62,7 @@ function App() {
                 <Route path='/createTopic' element={<CreateTopic />} />
                 <Route path='/ErrorPage' element={<ErrorPage />} />
                 <Route path="/search" element={<SearchResult />} />
+                <Route path="/studentCourse" element={<StudentCourse />} />
               </Routes>
               <Footer />
             </BrowserRouter>
