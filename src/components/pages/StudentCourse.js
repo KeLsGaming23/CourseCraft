@@ -44,36 +44,38 @@ function StudentCourse() {
 
     return (
         <>
-            <div className="mx-auto" style={{ width: "70%" }}>
-                <h1>Your Enrolled Courses</h1>
-
-                <table className="table">
-                    <thead>
-                        <tr>
-                            <th>Course Title</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {enrolledCourses.map((course) => (
-                            <tr key={course.id}>
-                                <td>{course.course_title}</td>
-                                <td>
-                                    <div className="d-flex gap-3">
-                                        <button className="btn btn-primary btn-sm"
-                                            onClick={() => handleCourse(course)}>
-                                            Go to Course
-                                        </button>
-                                        <button className="btn btn-danger btn-sm"
-                                            onClick={handleUnenroll}>
-                                            Unenroll Course
-                                        </button>
-                                    </div>
-                                </td>
+            <div className="" style={{ height: "100vh" }}>
+                <div className="mx-auto p-5 mt-5" style={{ width: "70%", border: "2px solid gray" }}>
+                    <h3 className="bg-secondary text-white px-3">Your Enrolled Courses</h3>
+                    <hr></hr>
+                    <table className="table border-none">
+                        <thead>
+                            <tr>
+                                <th>Course Title</th>
+                                <th>Actions</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            {enrolledCourses.map((course) => (
+                                <tr key={course.id}>
+                                    <td>{course.course_title}</td>
+                                    <td>
+                                        <div className="d-flex gap-3">
+                                            <button className="btn btn-primary btn-sm"
+                                                onClick={() => handleCourse(course)}>
+                                                Go to Course
+                                            </button>
+                                            <button className="btn btn-danger btn-sm"
+                                                onClick={handleUnenroll}>
+                                                Unenroll Course
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </>
     );
