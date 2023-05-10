@@ -59,3 +59,7 @@ Track::-webkit-scrollbar-track {
   background: gray;
   cursor: pointer;
 }
+
+.pointer {
+  cursor: pointer;
+}

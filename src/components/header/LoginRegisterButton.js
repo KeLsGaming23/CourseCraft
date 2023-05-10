@@ -1,8 +1,8 @@
-import {Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 function LoginRegisterButton() {
     return (
         <>
-            <div className="col-md-3 text-end">
+            <div className="d-flex">
                 <Link to="/loginPage" type="button" className="btn btn-outline-primary me-2">
                     login
                 </Link>
