@@ -45,14 +45,12 @@ function RegisterPage(props) {
     }
     return (
         <div>
-            <br></br>
-            <br></br>
-            <div className='row'>
-                <div className='jumbotron col-lg-4 offset-lg-4'>
-                    <h3 className='text-center'>Register Account</h3>
+            <div className='' style={{ height: "100vh" }}>
+                <div className='mx-auto p-5 mt-5' style={{ width: "30%", border: "2px solid gray" }}>
+                    <h3 className='bg-secondary text-white p-2 text-center mb-3'>Register Account</h3>
 
                     <form onSubmit={formSubmit}>
-                        <div className='form-group'>
+                        <div className='form-group mb-2'>
                             <label htmlFor='exampleInputEmail1'>User Name </label>
                             <input
                                 type='text'
@@ -65,7 +63,7 @@ function RegisterPage(props) {
                             />
                         </div>
 
-                        <div className='form-group'>
+                        <div className='form-group mb-2'>
                             <label htmlFor='exampleInputEmail1'>Email address</label>
                             <input
                                 type='email'
@@ -78,7 +76,7 @@ function RegisterPage(props) {
                             />
                         </div>
 
-                        <div className='form-group'>
+                        <div className='form-group mb-2'>
                             <label htmlFor='exampleInputPassword1'>Password</label>
                             <input
                                 type='password'
@@ -91,7 +89,7 @@ function RegisterPage(props) {
                             />
                         </div>
 
-                        <div className='form-group'>
+                        <div className='form-group mb-2'>
                             <label htmlFor='exampleInputPassword1'>Confirm Password</label>
                             <input
                                 type='password'
@@ -106,14 +104,12 @@ function RegisterPage(props) {
                                 }}
                             />
                         </div>
-
-                        <button type='submit' className='btn btn-primary btn-block'>
-                            Register
-                        </button>
-                        <br></br>
-                        Have an Account? <Link to='/loginPage'>Login Here</Link>
-                        <br></br>
-                        Forget My Password <Link to='/forget'>Click Here</Link>
+                        <div className='d-flex flex-column'>
+                            <button type='submit' className='btn btn-primary btn-block mb-3' style={{ width: "100%" }}>
+                                Register
+                            </button>
+                            <span>Have an Account? <Link to='/loginPage'>Login Here</Link></span>
+                        </div>
                     </form>
                 </div>
             </div>
