@@ -12,22 +12,22 @@ function CourseOverview(overview) {
     const token = localStorage.getItem('token');
     const getEnrolledCourse = async () => {
         try {
-          const response = await axios.get('http://127.0.0.1:8000/api/enrolledCourses', {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          });
-          const enrolledCourse = response.data.find((course) => course.course_id === selectedCourse.id);
-          setIsEnroll(enrolledCourse !== undefined);
+            const response = await axios.get('http://127.0.0.1:8000/api/enrolledCourses', {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            const enrolledCourse = response.data.find((course) => course.course_id === selectedCourse.id);
+            setIsEnroll(enrolledCourse !== undefined);
         } catch (error) {
-          console.log(error);
+            console.log(error);
         }
-      };
-      useEffect(() => {
+    };
+    useEffect(() => {
         if (token) {
-          getEnrolledCourse();
+            getEnrolledCourse();
         }
-      }, [setIsEnroll, selectedCourse.id, token]);
+    }, [setIsEnroll, selectedCourse.id, token]);
 
 
     // console.log(selectedCourse);
@@ -65,7 +65,7 @@ function CourseOverview(overview) {
 
     return (
         <>
-            <div className="container d-flex justify-content-center gap-5">
+            <div className="container d-flex flex-row-reverse justify-content-center gap-5 my-5">
                 <div className="overflow-y-auto my-3 px-3" style={{ maxHeight: "400px" }}>
                     <div className="card" style={{}}>
                         <div className="card-body " >
@@ -154,9 +154,9 @@ function CourseOverview(overview) {
                         </iframe>
                         <div className="card-body p-3 text-center" >
                             <h5>Free Access</h5>
-                            {isEnroll ? 
+                            {isEnroll ?
                                 <button onClick={handleGoToCourse}>Go to Course</button>
-                             : 
+                                :
                                 <button onClick={handleEnroll}>Enroll Now</button>
                             }
                         </div>
