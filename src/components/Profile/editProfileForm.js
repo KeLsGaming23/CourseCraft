@@ -1,11 +1,64 @@
+import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from "axios";
+
 function EditProfileForm() {
 
-    function handleSave() {
-        alert("save");
-    }
+    const navigate = useNavigate();
+    const [state, setState] = useState(null);
+    const [updatedUser, setUpdatedUser] = useState({
+        name: '',
+        email: '',
+    });
+
+    let token = localStorage.getItem('token');
+    useEffect(() => {
+        const fetchUser = async () => {
+            try {
+                if (token) {
+                    const response = await axios.get('http://127.0.0.1:8000/api/user', {
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                        },
+                    });
+                    setState(response.data.id);
+                    setUpdatedUser(response.data);
+                }
+            } catch (error) {
+                console.log(error);
+            }
+        };
+
+        fetchUser();
+    }, [token]);
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setUpdatedUser((prevUser) => ({
+            ...prevUser,
+            [name]: value,
+        }));
+    };
+
+    const handleSave = async () => {
+        try {
+            const response = await axios.post(
+                `http://127.0.0.1:8000/api/user/${state}`,
+                updatedUser,
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                }
+            );
+            console.log('User updated successfully');
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     function handleCancel() {
-        alert("cancel");
+        navigate('/profilePage');
     }
 
     return (
@@ -13,27 +66,25 @@ function EditProfileForm() {
             <div className="" style={{}}>
                 <form className="row g-3">
                     <div className="col-12">
-                        <label htmlFor="">First Name:</label>
+                        <label htmlFor="">Name:</label>
                         <div className="">
-                            <input type="text" className="form-control" />
-                        </div>
-                    </div>
-                    <div className="col-12">
-                        <label htmlFor="">Last Name:</label>
-                        <div className="">
-                            <input type="text" className="form-control" />
+                            <input type="text"
+                                className="form-control"
+                                name="name"
+                                value={updatedUser.name}
+                                onChange={handleInputChange}
+                            />
                         </div>
                     </div>
                     <div className="col-12">
                         <label htmlFor="">Email:</label>
                         <div className="">
-                            <input type="email" className="form-control" />
-                        </div>
-                    </div>
-                    <div className="col-12">
-                        <label htmlFor="">Password:</label>
-                        <div className="">
-                            <input type="password" className="form-control" />
+                            <input type="email"
+                                className="form-control"
+                                name="email"
+                                value={updatedUser.email}
+                                onChange={handleInputChange}
+                            />
                         </div>
                     </div>
                     <div className="d-flex justify-content-end gap-1">
