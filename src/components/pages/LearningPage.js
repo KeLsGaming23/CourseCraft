@@ -2,6 +2,7 @@ import axios from "axios";
 import CommentSection from "../LearningPage/CommentSection";
 import { useContext, useEffect, useState } from "react";
 import { CourseContext } from "../../context/CourseContext";
+import "./style.css"
 
 
 function LearningPage() {
@@ -30,10 +31,9 @@ function LearningPage() {
     return (
         <>
             <div className="container">
-                <h1>Student Name: </h1>
                 <div className="d-flex justify-content-center">
-                    <div className="" style={{ width: "60%" }}>
-                        <div style={{ width: "100%" }}>
+                    <div className="ms-5 mt-3" style={{ width: "60%" }}>
+                        <div style={{ width: "100%" }} className="play-video">
                             <div className="" style={{ position: "relative", paddingBottom: "56.25%", paddingTop: "35px", height: "0", overflow: "hidden" }}>
                                 <iframe width="700"
                                     height="500"
@@ -47,31 +47,47 @@ function LearningPage() {
                         </div>
                         <CommentSection />
                     </div>
-                    <div className="">
-                        <div className="overflow-auto" style={{ height: "470px", maxHeight: "470px", width: "300px" }}>
-                            <div className="">
-                                <div className="">
-                                    {topics.map((topic, index) => (
-                                        <div
-                                            key={topic.id}
-                                            className="d-flex align-items-center gap-2"
-                                            onClick={() => handlePlaylist(topic)}
-                                            style={{ border: "2px solid gray" }}
-                                        >
-                                            <img
-                                                src="https://cdn.shopify.com/s/files/1/2018/8867/files/play-button.png?422609932170209736"
-                                                width="120px"
-                                                height="100px"
-                                            />
-                                            <h3>{topic.topic_title}</h3>
+
+
+                    <div id="suggested-topics">
+                        <a class="btn btn-outline-secondary btn-sm ms-2 mt-3 pb-0 my-1" 
+                            data-bs-toggle="collapse"
+                            href="#multiCollapseExample1"
+                            role="button" aria-expanded="false" 
+                            aria-controls="multiCollapseExample1">
+                          <p>Topic List <span><i class="fa-solid fa-angle-down"></i></span></p> 
+                        </a>
+                            <div class="col ms-2">
+                                <div class="collapse multi-collapse" id="multiCollapseExample1">
+                                    <div class="card card-body topic-container">
+                                        <div className="">
+                                            <div className="overflow-auto" style={{ height: "349px", maxHeight: "349px", width: "300px" }}>
+                                                <div className="">
+                                                    <div className="rounded-1">
+                                                        {topics.map((topic, index) => (
+                                                            <div
+                                                                key={topic.id}
+                                                                className="d-flex align-items-center gap-2 rounded-3 my-1 topic-list shadow-sm"
+                                                                onClick={() => handlePlaylist(topic)}
+                                                                style={{ border: "2px solid gray" }}
+                                                            >
+                                                                <img
+                                                                    src={ require('./images/Play.png')} width={120} height={100}
+                                                                    alt="Play" id="play-button"
+                                                                />
+                                                                <h5>{topic.topic_title}</h5>
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    ))}
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
         </>
     );
 }
