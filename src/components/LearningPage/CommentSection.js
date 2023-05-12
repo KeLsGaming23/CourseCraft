@@ -51,6 +51,7 @@ function CommentSection() {
                         }
                     });
                     getStudentQuestions(response.data);
+                    localStorage.setItem('comments', JSON.stringify(response.data)); // Save comments in local storage
                 }
             } catch (error) {
                 console.log(error);
@@ -58,6 +59,13 @@ function CommentSection() {
         };
         ListOfComment();
     }, [getStudentQuestions]);
+
+    useEffect(() => {
+        const storedComments = localStorage.getItem('comments');
+        if (storedComments) {
+            getStudentQuestions(JSON.parse(storedComments));
+        }
+    }, []);
 
     return (
         <>
