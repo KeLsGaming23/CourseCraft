@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { LoginContext } from "../../context/LoginContext";
 
-function CourseOverview() {
+function CourseOverview(course) {
     const {isEnroll, setIsEnroll} = useContext(LoginContext);
     const {isLogin, setIsLogin} = useContext(LoginContext);
     function handleEnrollNow(){
@@ -12,6 +12,10 @@ function CourseOverview() {
         <>
             <div className="container d-flex justify-content-between">
                 <div className="" style={{ width: "50%" }}>
+                    <div>
+                        <h3>Title {course.title}</h3>
+                        <p>{course.description}</p>
+                    </div>
                     <div className="p-3" style={{ border: "2px solid gray" }}>
                         <h1>What You'll learn</h1>
                         <p><span><i className="fa-solid fa-check"> </i></span> Automate tasks on their computer by writing simple Python programs.</p>

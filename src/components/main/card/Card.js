@@ -1,10 +1,11 @@
+import "./Card.css"
 
 function Card(props) {
 
     return (
         <>
-            <div className="col">
-                <div className="card shadow-sm image-hover" onClick={props.onClick}>
+            <div className="col cards">
+                <div className="card shadow-sm" onClick={props.onClick}>
                     <img className="bd-placeholder-img card-img-top" width="100%" height="225" src={props.image} alt="" />
                     <div className="card-body" style={{ height: "250px", maxHeight: "250px" }}>
                         <h5 className="card-title overflow-hidden" style={{ height: "50px", maxHeight: "50px" }}>{props.title}</h5>
