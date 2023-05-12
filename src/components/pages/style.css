@@ -582,9 +582,9 @@ nav .menu .menu_icon:hover .icon:after {
 /* video and topic list css shadows and animation */
 
 .play-video {
-	box-shadow: -6px 4px 10px -1px rgba(163, 163, 163, 0.75);
-	-webkit-box-shadow: -6px 4px 10px -1px rgba(163, 163, 163, 0.75);
-	-moz-box-shadow: -6px 4px 10px -1px rgba(163, 163, 163, 0.75);
+	-webkit-box-shadow: 0px 15px 29px 5px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 0px 15px 29px 5px rgba(0, 0, 0, 0.75);
+	box-shadow: 0px 15px 29px 5px rgba(0, 0, 0, 0.75);
 	transition: 0.5s;
 }
 
@@ -602,7 +602,7 @@ nav .menu .menu_icon:hover .icon:after {
 
 .topic-list {
 	background: rgb(33, 42, 62);
-    background: linear-gradient(90deg, rgba(33, 42, 62, 1) 0%, rgba(51, 224, 172, 1) 75%, rgba(60, 107, 106, 1) 100%);
+	background: linear-gradient(90deg, rgba(33, 42, 62, 1) 0%, rgba(51, 224, 172, 1) 75%, rgba(60, 107, 106, 1) 100%);
 	color: black;
 	cursor: pointer;
 }
@@ -613,8 +613,7 @@ nav .menu .menu_icon:hover .icon:after {
 	transition: 0.5s;
 	cursor: pointer;
 }
+
 #play-button:hover {
 	transform: translateY(-10px);
 }
-
-
