@@ -68,12 +68,11 @@ function CourseOverview(overview) {
         <>
             <div className="container d-flex flex-row-reverse justify-content-center gap-5 my-5">
                 <div className="overflow-y-auto my-3 px-3" style={{ maxHeight: "400px" }}>
-                    <div>
-                        <h3>Title {overview.title}</h3>
-                        <p>{overview.description}</p>
-                    </div>
                     <div className="card" style={{}}>
                         <div className="card-body " >
+                            <h2>{overview.title}</h2>
+                            <p>{overview.description}</p>
+                            <br/>
                             <h1>What You'll learn</h1>
                             <p><span><i className="fa-solid fa-check"> </i></span> Automate tasks on their computer by writing simple Python programs.</p>
                             <p><span><i className="fa-solid fa-check"> </i></span> Automate tasks on their computer by writing simple Python programs.</p>
