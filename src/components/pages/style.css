@@ -595,7 +595,7 @@ nav .menu .menu_icon:hover .icon:after {
 }
 
 .topic-container:hover {
-	box-shadow: 9px 3px 15px 4px rgba(163, 163, 163, 0.75);
+	 box-shadow: 9px 3px 15px 4px rgba(163, 163, 163, 0.75);
 	-webkit-box-shadow: 9px 3px 15px 4px rgba(163, 163, 163, 0.75);
 	-moz-box-shadow: 9px 3px 15px 4px rgba(163, 163, 163, 0.75);
 }

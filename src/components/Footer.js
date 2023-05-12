@@ -1,7 +1,7 @@
 function Footer() {
     return (
         <>
-            <footer className="pt-4 my-md-5 pt-md-5 border-top">
+            <footer className="pt-4 my-md-5 pt-md-5 border-top bg-black text-white">
                 <div className="row">
                     <div className="col-12 col-md">
                         <img className="mb-2" src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="24" height="19" />
