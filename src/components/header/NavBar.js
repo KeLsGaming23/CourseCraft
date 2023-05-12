@@ -3,7 +3,7 @@ import Avatar from "./Avatar";
 import LoginRegisterButton from "./LoginRegisterButton";
 import { useContext, useState } from "react";
 import { CourseContext } from "../../context/CourseContext";
-// import logo from './logo.gif';
+import Logo1 from './Logo1.png';
 
 function NavBar(props) {
   const [searchQuery, setSearchQuery] = useState("");
@@ -53,8 +53,8 @@ function NavBar(props) {
         <header className="d-flex align-items-center justify-content-around p-3 border-bottom">
           {/* <div className="col-md-3 mb-2 mb-md-0"> */}
           <Link to="/" className="text-decoration-none text-black">
-            {/* <img src={logo} style={{ width: "150px", height: "80px", objectFit: "cover" }} alt="logo"></img> */}
-            <h1>CourseCraft</h1>
+            <img src={Logo1} style={{ width: "170px", height: "70px" }} alt="logo"></img>
+            {/* <h1>CourseCraft</h1> */}
             {/* <svg className="bi" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap" /></svg> */}
           </Link>
           {/* </div> */}

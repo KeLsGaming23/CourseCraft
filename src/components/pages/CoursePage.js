@@ -21,6 +21,9 @@ function CoursePage() {
                 image={selectedCourse.course_thumbnail}
             />
             <CourseOverview
+                title={selectedCourse.course_title}
+                description={selectedCourse.course_description}
+
                 name={selectedCourse.instructorName}
                 specialities={selectedCourse.instructorSpecialities}
                 image={selectedCourse.instructorImage}

@@ -1,3 +1,5 @@
+import "./HeroBanner.css"
+
 function HeroBanner() {
     return (
         <>
@@ -10,9 +12,9 @@ function HeroBanner() {
                 <div className="carousel-inner w-100 text-center py-5">
                     <div className="carousel-item active" data-bs-interval="10000">
                         <div style={{ height: "400px", minHeight: "400px" }}>
-                            <div className="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg bg-secondary">
+                            <div className="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg hero-background">
                                 <div className="col-lg-7 p-3 p-lg-5 pt-lg-3 text-white text-start">
-                                    <h1 className="display-4 fw-bold lh-1 text-body-emphasis">Programming</h1>
+                                    <h1 className="display-4 fw-bold lh-1 text-white">Programming</h1>
                                     <p className="lead">Programming involves tasks such as analysis, generating algorithms, profiling algorithms' accuracy and resource consumption, and the implementation of algorithms</p>
                                     <div className="btn-group">
                                         <button className="btn btn-primary btn-lg">Explore Now</button>
@@ -26,9 +28,9 @@ function HeroBanner() {
                     </div>
                     <div className="carousel-item" data-bs-interval="10000">
                         <div style={{ height: "400px", minHeight: "400px" }}>
-                            <div className="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg bg-secondary">
+                            <div className="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg hero-background">
                                 <div className="col-lg-7 p-3 p-lg-5 pt-lg-3 text-white">
-                                    <h1 className="display-4 fw-bold lh-1 text-body-emphasis">Web Development</h1>
+                                    <h1 className="display-4 fw-bold lh-1 text-white">Web Development</h1>
                                     <p className="lead">Web development, also known as website development, refers to the tasks associated with creating, building, and maintaining websites and web applications that run online on a browser. It may, however, also include web design, web programming, and database management.</p>
                                     <p className="lead">This is Course Ratigs</p>
                                     <button className="btn btn-primary btn-lg p-3">Explore Now</button>
@@ -41,9 +43,9 @@ function HeroBanner() {
                     </div>
                     <div className="carousel-item" data-bs-interval="10000">
                         <div style={{ height: "400px", minHeight: "400px" }}>
-                            <div className="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg bg-secondary">
+                            <div className="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg hero-background">
                                 <div className="col-lg-7 p-3 p-lg-5 pt-lg-3 text-white text-end">
-                                    <h1 className="display-4 fw-bold lh-1 text-body-emphasis">React JS</h1>
+                                    <h1 className="display-4 fw-bold lh-1 text-white">React JS</h1>
                                     <p className="lead">React is a free and open-source front-end JavaScript library for building user interfaces based on components. It is maintained by Meta and a community of individual developers and companies.</p>
                                     <p className="lead">This is Course Ratigs</p>
                                     <button className="btn btn-primary btn-lg p">Explore Now</button>

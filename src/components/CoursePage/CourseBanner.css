@@ -1,6 +1,13 @@
 #Course-banner {
-    background-image: url(./images/black-bg.png);
+    background-image: url(./images/samp.png);
     background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    background-position-x: right;
+    background-size: 58vw;  
+    background-position-y: bottom;
+
+}
+
+#course-background {
+    background: rgb(33, 42, 62);
+    background: linear-gradient(90deg, rgba(33, 42, 62, 1) 0%, rgba(51, 224, 172, 1) 75%, rgba(60, 107, 106, 1) 100%);
 }

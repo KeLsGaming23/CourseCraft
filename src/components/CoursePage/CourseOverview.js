@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { LoginContext } from "../../context/LoginContext";
 import { CourseContext } from "../../context/CourseContext";
 import axios from "axios";
+import "./CourseOverview.css"
 
 function CourseOverview(overview) {
 
@@ -69,6 +70,9 @@ function CourseOverview(overview) {
                 <div className="overflow-y-auto my-3 px-3" style={{ maxHeight: "400px" }}>
                     <div className="card" style={{}}>
                         <div className="card-body " >
+                            <h2>{overview.title}</h2>
+                            <p>{overview.description}</p>
+                            <br/>
                             <h1>What You'll learn</h1>
                             <p><span><i className="fa-solid fa-check"> </i></span> Automate tasks on their computer by writing simple Python programs.</p>
                             <p><span><i className="fa-solid fa-check"> </i></span> Automate tasks on their computer by writing simple Python programs.</p>
@@ -142,7 +146,7 @@ function CourseOverview(overview) {
                         </div>
                     </div>
                 </div>
-                <div className="my-3" style={{}}>
+                <div className="my-3" style={{}} id="video-card">
                     <div className="card">
                         <iframe
                             width="560"
@@ -155,9 +159,9 @@ function CourseOverview(overview) {
                         <div className="card-body p-3 text-center" >
                             <h5>Free Access</h5>
                             {isEnroll ?
-                                <button onClick={handleGoToCourse}>Go to Course</button>
+                                <button onClick={handleGoToCourse} className="btn-course">Go to Course</button>
                                 :
-                                <button onClick={handleEnroll}>Enroll Now</button>
+                                <button onClick={handleEnroll} className="btn-course">Enroll Now</button>
                             }
                         </div>
                     </div>

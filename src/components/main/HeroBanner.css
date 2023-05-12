@@ -1,0 +1,10 @@
+.hero-background {
+    background: rgb(33, 42, 62);
+	background: linear-gradient(90deg, rgba(33, 42, 62, 1) 0%, rgba(51, 224, 172, 1) 75%, rgba(60, 107, 106, 1) 100%);
+} 
+
+.offer-background {
+    background: rgb(0,0,0);
+background: linear-gradient(90deg, rgba(0,0,0,1) 2%, rgba(23,149,113,0.9305847338935574) 75%, rgba(13,78,59,1) 94%);
+    color: white;
+}
