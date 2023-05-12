@@ -11,8 +11,9 @@ export const CourseProvider = (props) => {
 
     function getInitialState() {
         const course = localStorage.getItem('course')
-        return course ? JSON.parse(course) : []
+        return course ? JSON.parse(course) : null
     }
+
     function getCurrentYoutubeVideo() {
         const youtubeLink = localStorage.getItem('youtubeLink')
         return youtubeLink;

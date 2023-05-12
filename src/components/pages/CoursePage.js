@@ -11,7 +11,7 @@ function CoursePage() {
     // for embeding video
     const link = selectedCourse.course_introduction;
     let newLink = link.replace('watch?v=', 'embed/');
-    const videoLink = newLink + '?autoplay=1';
+    // const videoLink = newLink + '?autoplay=1';
     localStorage.setItem('selectedCourse', selectedCourse.id);
     return (
         <>
@@ -24,7 +24,7 @@ function CoursePage() {
                 name={selectedCourse.instructorName}
                 specialities={selectedCourse.instructorSpecialities}
                 image={selectedCourse.instructorImage}
-                video={videoLink}
+                video={newLink}
             />
             <Discover />
         </>
