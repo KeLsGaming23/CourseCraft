@@ -1,11 +1,13 @@
+import footer from './pages/images/footer-img.png'
+
 function Footer() {
     return (
         <>
             <footer className="pt-4 my-md-5 pt-md-5 border-top bg-black text-white">
                 <div className="row">
                     <div className="col-12 col-md">
-                        <img className="mb-2" src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="24" height="19" />
-                            <small className="d-block mb-3 text-body-secondary">&copy; 2017–2023</small>
+                        <img className="ms-3" src={footer} alt="" width="180" height="80" />
+                            <small className="d-block ms-4 text-white">&copy; 2017–2023</small>
                     </div>
                     <div className="col-6 col-md">
                         <h5>Features</h5>
