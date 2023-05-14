@@ -70,7 +70,7 @@ const LoginPage = (props) => {
             </div>
 
             <button type="submit" className="btn btn-primary mb-3" style={{ width: "100%" }}>Login</button>
-            <span>Forget My Password <Link to="/forget">Click Here</Link></span>
+            <span>Forget My Password <Link to="/forgotPassword">Click Here</Link></span>
           </form>
 
         </div>
