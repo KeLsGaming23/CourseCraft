@@ -39,17 +39,26 @@ function CreateTopic() {
     }
     return (
         <>
-            <form onSubmit={handleSubmit}>
-                <input type="text" name="topic_title" placeholder="Topic title" 
-                    onChange={(event) => {
-                        setState({ ...state, topic_title: event.target.value });
-                        }}/>
-                <input type="text" name="topic_video" placeholder="Topic video" 
-                    onChange={(event) => {
-                        setState({ ...state, topic_video: event.target.value });
-                        }}/>
-                <button type="submit">Create Topic</button>
-            </form>
+            <div className="container pt-5" style={{ minHeight: "100vh" }}>
+                <h1 className="bg-secondary text-white px-3 hero-background">Add Topic</h1>
+                <form onSubmit={handleSubmit} className="p-4" style={{ border: "2px solid gray" }}>
+                    <div className="form-group mb-3">
+                        <label>Topic Title</label>
+                        <input type="text" className="form-control" name="topic_title" placeholder=""
+                            onChange={(event) => {
+                                setState({ ...state, topic_title: event.target.value });
+                            }} />
+                    </div>
+                    <div className="form-group mb-3">
+                        <label>Topic Video</label>
+                        <input type="text" className="form-control" name="topic_video" placeholder=""
+                            onChange={(event) => {
+                                setState({ ...state, topic_video: event.target.value });
+                            }} />
+                    </div>
+                    <button type="submit" className="btn btn-primary">Create Topic</button>
+                </form>
+            </div>
         </>
     );
 }

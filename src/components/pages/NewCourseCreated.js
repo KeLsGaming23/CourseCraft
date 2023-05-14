@@ -30,44 +30,58 @@ function NewCourseCreated() {
 
   return (
     <>
-      <h1>New Course Created</h1>
-      <table className="table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Thumbnail</th>
-            <th>Introduction</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {courses.map((course) => (
-            <tr key={course.id}>
-              <td>{course.id}</td>
-              <td>{course.course_title}</td>
-              <td>{course.course_description}</td>
-              <td>{course.course_thumbnail}</td>
-              <td>{course.course_introduction}</td>
-              <td>
-                <button
-                  className="btn btn-primary"
-                  onClick={() => handleAddTopic(course.id)}
-                >
-                  Add Topic
-                </button>
-                <button
-                  className="btn btn-danger"
-                  onClick={() => handleDeleteTopic(course.id)}
-                >
-                  Delete Topic
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <div className='container pt-5' style={{ minHeight: "100vh" }}>
+        <h1 className='bg-secondary text-white px-3 hero-background'>New Course Created</h1>
+        <div className='table-responsive-md p-3' style={{ border: "2px solid gray" }}>
+          <table className="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Thumbnail</th>
+                <th>Introduction</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {courses.map((course) => (
+                <tr key={course.id}>
+                  <td>{course.id}</td>
+                  <td>{course.course_title}</td>
+                  <td>
+                    <div className='overflow-hidden' style={{ maxHeight: "100px" }}>
+                      {course.course_description}
+                    </div>
+                  </td>
+                  <td>
+
+                    {course.course_thumbnail}
+
+                  </td>
+                  <td>{course.course_introduction}</td>
+                  <td>
+                    <div className='d-flex gap-2' style={{ width: "250px" }}>
+                      <button
+                        className="btn btn-primary btn-sm"
+                        onClick={() => handleAddTopic(course.id)}
+                      >
+                        Add Topic
+                      </button>
+                      <button
+                        className="btn btn-danger btn-sm"
+                        onClick={() => handleDeleteTopic(course.id)}
+                      >
+                        Delete Topic
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </>
   );
 }

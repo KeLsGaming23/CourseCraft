@@ -53,29 +53,27 @@ const LoginPage = (props) => {
   }
 
   return (
-    <div>
-      <div className="" style={{ height: "100vh" }}>
-        <div className="mx-auto p-5 mt-5" style={{ width: "30%", border: "2px solid gray" }}>
-          <h3 className="bg-secondary text-white p-2 text-center mb-3">Login Account</h3>
+    <div className="" style={{ minHeight: "100vh" }}>
+      <div className='mx-auto mt-5' style={{ width: "30%" }}>
+        <h3 className="bg-secondary text-white p-2 text-center hero-background">Login Account</h3>
 
-          <form onSubmit={formSubmit} >
-            {error}
-            <div className="form-group mb-3">
-              <label htmlFor="exampleInputEmail1">Email address</label>
-              <input type="email" name="email" className="form-control" required onChange={(e) => { setEmail(e.target.value) }} />
-            </div>
-            <div className="form-group mb-3">
-              <label htmlFor="exampleInputPassword1">Password</label>
-              <input type="password" name="password" className="form-control" required onChange={(e) => { setPassword(e.target.value) }} />
-            </div>
+        <form onSubmit={formSubmit} className="p-4" style={{ border: "2px solid gray" }} >
+          {error}
+          <div className="form-group mb-3">
+            <label htmlFor="exampleInputEmail1">Email address</label>
+            <input type="email" name="email" className="form-control" required onChange={(e) => { setEmail(e.target.value) }} />
+          </div>
+          <div className="form-group mb-3">
+            <label htmlFor="exampleInputPassword1">Password</label>
+            <input type="password" name="password" className="form-control" required onChange={(e) => { setPassword(e.target.value) }} />
+          </div>
 
-            <button type="submit" className="btn btn-primary mb-3" style={{ width: "100%" }}>Login</button>
-            <span>Forget My Password <Link to="/forget">Click Here</Link></span>
-          </form>
-
-        </div>
+          <button type="submit" className="btn btn-primary mb-3" style={{ width: "100%" }}>Login</button>
+          <span>Forget My Password <Link to="/forget">Click Here</Link></span>
+        </form>
 
       </div>
+
     </div>
   );
 }

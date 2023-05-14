@@ -37,33 +37,32 @@ function NewCourse() {
 
     return (
         <>
-            <div className="container">
-                <h1>Simple Form</h1>
+            <div className="container pt-5" style={{ minHeight: "100vh" }}>
+                <h1 className='bg-secondary text-white px-3 hero-background'>Add New Course</h1>
 
-                <form onSubmit={handleSubmit} encType="multipart/form-data">
-                    <div className="form-group">
+                <form onSubmit={handleSubmit} encType="multipart/form-data" className="p-4" style={{ border: "2px solid gray" }}>
+                    <div className="form-group mb-3">
                         <label htmlFor="input1">Course Title</label>
                         <input type="text" className="form-control" name="course_title" required />
                     </div>
 
-                    <div className="form-group">
+                    <div className="form-group mb-3">
                         <label htmlFor="input2">Course Description</label>
                         <textarea className="form-control" name="course_description" rows="3" required></textarea>
                     </div>
 
-                    <div className="form-group">
+                    <div className="form-group mb-3">
                         <label htmlFor="input3">Course Thumbnail</label>
-                        <input type="file" className="form-control-file" name="course_thumbnail" accept=".jpg,.png" required />
+                        <input type="file" className="form-control-file px-3" name="course_thumbnail" accept=".jpg,.png" required />
                     </div>
 
-                    <div className="form-group">
+                    <div className="form-group mb-3">
                         <label htmlFor="input4">Course Video Introduction</label>
                         <input type="text" className="form-control" name="course_introduction" required />
                     </div>
 
                     <button type="submit" className="btn btn-primary">Submit</button>
                 </form>
-
             </div>
         </>
     );

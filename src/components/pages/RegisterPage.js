@@ -46,10 +46,10 @@ function RegisterPage(props) {
     return (
         <div>
             <div className='' style={{ height: "100vh" }}>
-                <div className='mx-auto p-5 mt-5' style={{ width: "30%", border: "2px solid gray" }}>
-                    <h3 className='bg-secondary text-white p-2 text-center mb-3'>Register Account</h3>
+                <div className='mx-auto mt-5' style={{ width: "30%" }}>
+                    <h3 className='bg-secondary text-white p-2 text-center hero-background'>Register Account</h3>
 
-                    <form onSubmit={formSubmit}>
+                    <form onSubmit={formSubmit} className="p-4" style={{ border: "2px solid gray" }}>
                         <div className='form-group mb-2'>
                             <label htmlFor='exampleInputEmail1'>User Name </label>
                             <input

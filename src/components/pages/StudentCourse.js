@@ -46,7 +46,7 @@ function StudentCourse() {
         <>
             <div className="" style={{ height: "100vh" }}>
                 <div className="mx-auto p-5 mt-5" style={{ width: "70%", border: "2px solid gray" }}>
-                    <h3 className="bg-secondary text-white px-3">Your Enrolled Courses</h3>
+                    <h3 className="bg-secondary text-white px-3 hero-background">Your Enrolled Courses</h3>
                     <hr></hr>
                     <table className="table border-none">
                         <thead>

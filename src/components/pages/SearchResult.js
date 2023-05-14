@@ -14,7 +14,7 @@ function SearchResult() {
 
     return (
         <>
-            <div className="container mt-5" style={{ height: "100vh" }}>
+            <div className="container mt-5" style={{ minHeight: "100vh" }}>
                 {result.length > 0 ? (
                     result.map(results => (
                         <div className="card mb-3" key={results.id} >

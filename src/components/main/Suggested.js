@@ -31,7 +31,7 @@ function Suggested() {
                 <div className="container">
                     <h3>Suggested Course</h3>
                     <hr />
-                    <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                    <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5">
                         {
                             courseData.map((course, index) => (
                                 <div
