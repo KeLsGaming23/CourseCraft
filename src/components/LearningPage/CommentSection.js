@@ -13,6 +13,17 @@ function CommentSection() {
         setAskQuestion(e.target.value);
     }
 
+    const commentNotify = () => toast.error('Ask Question Succesful wait for the response', {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+    });
+
     async function handleQuestion() {
         const token = localStorage.getItem('token');
         const data = { question: askQuestion };
@@ -24,21 +35,15 @@ function CommentSection() {
                     }
                 });
                 if (response) {
-                    alert('Comment successful');
+                    commentNotify();
                     getStudentQuestions(prevQuestions => [...prevQuestions, response.data]);
                     setAskQuestion('');
-
-                } else {
-                    alert('Error');
                 }
             } catch (error) {
                 console.log(error);
-                alert('Error');
             }
         }
     }
-
-
 
     useEffect(() => {
         const token = localStorage.getItem('token');

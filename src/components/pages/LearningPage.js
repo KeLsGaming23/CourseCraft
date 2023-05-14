@@ -50,35 +50,34 @@ function LearningPage() {
 
 
                     <div id="suggested-topics">
-                        <a class="btn btn-outline-secondary btn-sm ms-2 mt-3 pb-0 my-1" 
+                        <a class="btn btn-outline-secondary btn-sm ms-2 mt-3 pb-0 my-1"
                             data-bs-toggle="collapse"
                             href="#multiCollapseExample1"
-                            role="button" aria-expanded="false" 
+                            role="button" aria-expanded="false"
                             aria-controls="multiCollapseExample1">
-                          <p>Topic List <span><i class="fa-solid fa-angle-down"></i></span></p> 
+                            <p>Topic List <span><i class="fa-solid fa-angle-down"></i></span></p>
                         </a>
-                            <div class="col ms-2">
-                                <div class="collapse multi-collapse" id="multiCollapseExample1">
-                                    <div class="card card-body topic-container">
-                                        <div className="">
-                                            <div className="overflow-auto" style={{ height: "349px", maxHeight: "349px", width: "300px" }}>
-                                                <div className="">
-                                                    <div className="rounded-1">
-                                                        {topics.map((topic, index) => (
-                                                            <div
-                                                                key={topic.id}
-                                                                className="d-flex align-items-center gap-2 rounded-3 my-1 topic-list shadow-sm"
-                                                                onClick={() => handlePlaylist(topic)}
-                                                                style={{ border: "2px solid gray" }}
-                                                            >
-                                                                <img
-                                                                    src={ require('./images/Play.png')} width={120} height={100}
-                                                                    alt="Play" id="play-button"
-                                                                />
-                                                                <h5>{topic.topic_title}</h5>
-                                                            </div>
-                                                        ))}
-                                                    </div>
+                        <div class="col ms-2">
+                            <div class="collapse multi-collapse" id="multiCollapseExample1">
+                                <div class="card card-body topic-container">
+                                    <div className="">
+                                        <div className="overflow-auto" style={{ height: "349px", maxHeight: "349px", width: "300px" }}>
+                                            <div className="">
+                                                <div className="rounded-1">
+                                                    {topics.map((topic, index) => (
+                                                        <div
+                                                            key={topic.id}
+                                                            className="d-flex align-items-center gap-2 rounded-3 my-1 topic-list shadow-sm"
+                                                            onClick={() => handlePlaylist(topic)}
+                                                            style={{ border: "2px solid gray" }}
+                                                        >
+                                                            <img
+                                                                src={require('./images/Play.png')} width={120} height={100}
+                                                                alt="Play" id="play-button"
+                                                            />
+                                                            <h5>{topic.topic_title}</h5>
+                                                        </div>
+                                                    ))}
                                                 </div>
                                             </div>
                                         </div>
@@ -88,6 +87,7 @@ function LearningPage() {
                         </div>
                     </div>
                 </div>
+            </div>
         </>
     );
 }

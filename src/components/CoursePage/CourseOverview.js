@@ -4,6 +4,8 @@ import { LoginContext } from "../../context/LoginContext";
 import { CourseContext } from "../../context/CourseContext";
 import axios from "axios";
 import "./CourseOverview.css"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function CourseOverview(overview) {
 
@@ -30,9 +32,6 @@ function CourseOverview(overview) {
         }
     }, [setIsEnroll, selectedCourse.id, token]);
 
-
-    // console.log(selectedCourse);
-
     function handleEnroll() {
         const config = {};
         const token = localStorage.getItem('token');
@@ -40,25 +39,48 @@ function CourseOverview(overview) {
             config.headers = {
                 Authorization: `Bearer ${token}`,
             };
+        } else {
+            loginNotify();
+            window.scrollTo(0, 0);
+            // setTimeout(() => {
+            //     navigate('/loginPage');
+            // }, 2500);
         }
+
         const data = { course_id: selectedCourse.id };
         axios
             .post(`http://127.0.0.1:8000/api/enrollCourse/${selectedCourse.id}`, data, config) // fix URL
             .then((response) => {
                 console.log(response);
-                alert(`Successfully Enrolled ${selectedCourse.course_title}`);
                 setIsEnroll(true);
+                notify();
             })
             .catch((error) => {
-                alert('You need to login to enroll');
                 console.log(error);
-                window.scrollTo(0, 0);
-                setTimeout(() => {
-                    navigate('/loginPage');
-                }, 1500);
             });
     }
 
+    const notify = () => toast.success(`Succesfully Enrolled ${selectedCourse.course_title}`, {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+    });
+
+    const loginNotify = () => toast.error('You need to login to enroll', {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+    });
 
     function handleGoToCourse() {
         navigate('/learningPage');
@@ -72,7 +94,7 @@ function CourseOverview(overview) {
                         <div className="card-body " >
                             <h2>{overview.title}</h2>
                             <p>{overview.description}</p>
-                            <br/>
+                            <br />
                             <h1>What You'll learn</h1>
                             <p><span><i className="fa-solid fa-check"> </i></span> Automate tasks on their computer by writing simple Python programs.</p>
                             <p><span><i className="fa-solid fa-check"> </i></span> Automate tasks on their computer by writing simple Python programs.</p>
@@ -166,10 +188,20 @@ function CourseOverview(overview) {
                         </div>
                     </div>
                 </div>
-
             </div >
 
-
+            <ToastContainer
+                position="top-center"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover={false}
+                theme="dark"
+            />
         </>
     );
 }

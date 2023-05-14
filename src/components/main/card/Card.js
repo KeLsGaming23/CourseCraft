@@ -4,7 +4,7 @@ function Card(props) {
 
     return (
         <>
-            <div className="col cards">
+            <div className="col cards pointer">
                 <div className="card shadow-sm" onClick={props.onClick}>
                     <img className="bd-placeholder-img card-img-top" width="100%" height="225" src={props.image} alt="" />
                     <div className="card-body" style={{ height: "250px", maxHeight: "250px" }}>

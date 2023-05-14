@@ -3,7 +3,7 @@ import "./HeroBanner.css"
 function HeroBanner() {
     return (
         <>
-            <div id="carouselExampleDark" className="carousel carousel-dark slide">
+            <div id="carouselExampleDark" className="carousel carousel-dark slide" data-bs-ride="carousel">
                 <div className="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" className="active flat-button" aria-current="true" aria-label="Slide 1"></button>
                     <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" className="flat-button" aria-label="Slide 2"></button>
