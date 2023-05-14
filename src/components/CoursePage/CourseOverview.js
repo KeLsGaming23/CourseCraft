@@ -4,7 +4,7 @@ import { LoginContext } from "../../context/LoginContext";
 import { CourseContext } from "../../context/CourseContext";
 import axios from "axios";
 import "./CourseOverview.css"
-import { ToastContainer, toast } from 'react-toastify';
+// import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function CourseOverview(overview) {
@@ -40,7 +40,7 @@ function CourseOverview(overview) {
                 Authorization: `Bearer ${token}`,
             };
         } else {
-            loginNotify();
+            // loginNotify();
             window.scrollTo(0, 0);
         }
 
@@ -50,34 +50,34 @@ function CourseOverview(overview) {
             .then((response) => {
                 console.log(response);
                 setIsEnroll(true);
-                notify();
+                // notify();
             })
             .catch((error) => {
                 console.log(error);
             });
     }
 
-    const notify = () => toast.success(`Succesfully Enrolled ${selectedCourse.course_title}`, {
-        position: "top-center",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-    });
+    // const notify = () => toast.success(`Succesfully Enrolled ${selectedCourse.course_title}`, {
+    //     position: "top-center",
+    //     autoClose: 3000,
+    //     hideProgressBar: false,
+    //     closeOnClick: true,
+    //     pauseOnHover: false,
+    //     draggable: true,
+    //     progress: undefined,
+    //     theme: "dark",
+    // });
 
-    const loginNotify = () => toast.error('You need to login to enroll', {
-        position: "top-center",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-    });
+    // const loginNotify = () => toast.error('You need to login to enroll', {
+    //     position: "top-center",
+    //     autoClose: 3000,
+    //     hideProgressBar: false,
+    //     closeOnClick: true,
+    //     pauseOnHover: false,
+    //     draggable: true,
+    //     progress: undefined,
+    //     theme: "dark",
+    // });
 
     function handleGoToCourse() {
         navigate('/learningPage');
@@ -187,7 +187,7 @@ function CourseOverview(overview) {
                 </div>
             </div >
 
-            <ToastContainer
+            {/* <ToastContainer
                 position="top-center"
                 autoClose={3000}
                 hideProgressBar={false}
@@ -198,7 +198,7 @@ function CourseOverview(overview) {
                 draggable
                 pauseOnHover={false}
                 theme="dark"
-            />
+            /> */}
         </>
     );
 }

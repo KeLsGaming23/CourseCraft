@@ -617,3 +617,21 @@ nav .menu .menu_icon:hover .icon:after {
 #play-button:hover {
 	transform: translateY(-10px);
 }
+
+/* footer responisve */
+
+@media screen and (max-width: 799px) {
+	footer {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		padding: 30px;
+	}
+
+	.logo-footer {
+		margin-bottom: 10px;
+		margin-left: 30px;
+
+	}
+}

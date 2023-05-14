@@ -1,15 +1,16 @@
 import footer from './pages/images/footer-img.png'
+import './pages/style.css'
 
 function Footer() {
     return (
         <>
             <footer className="pt-4 my-md-5 pt-md-5 border-top bg-black text-white">
                 <div className="row">
-                    <div className="col-12 col-md">
+                    <div className="col-12 col-md logo-footer">
                         <img className="ms-3" src={footer} alt="" width="180" height="80" />
-                            <small className="d-block ms-4 text-white">&copy; 2017–2023</small>
+                            <small className="d-block ms-4 text-white series-num">&copy; 2017–2023</small>
                     </div>
-                    <div className="col-6 col-md">
+                    <div className="col-6 col-lg">
                         <h5>Features</h5>
                         <ul className="list-unstyled text-small">
                             <li className="mb-1"><a className="link-secondary text-decoration-none" href="#">Cool stuff</a></li>
