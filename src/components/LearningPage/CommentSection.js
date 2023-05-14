@@ -2,6 +2,8 @@ import { useContext, useEffect, useState } from 'react';
 import { CourseContext } from '../../context/CourseContext';
 import Comment from './Comment';
 import axios from 'axios';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function CommentSection() {
 
