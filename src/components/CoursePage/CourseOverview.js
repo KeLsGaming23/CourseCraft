@@ -42,9 +42,6 @@ function CourseOverview(overview) {
         } else {
             loginNotify();
             window.scrollTo(0, 0);
-            // setTimeout(() => {
-            //     navigate('/loginPage');
-            // }, 2500);
         }
 
         const data = { course_id: selectedCourse.id };

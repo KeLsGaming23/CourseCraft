@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { CourseContext } from '../../context/CourseContext';
 import Comment from './Comment';
 import axios from 'axios';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function CommentSection() {
@@ -15,7 +15,7 @@ function CommentSection() {
         setAskQuestion(e.target.value);
     }
 
-    const commentNotify = () => toast.error('Ask Question Succesful wait for the response', {
+    const commentNotify = () => toast.success('Ask Question Succesful wait for the response', {
         position: "top-center",
         autoClose: 3000,
         hideProgressBar: false,
@@ -97,6 +97,18 @@ function CommentSection() {
                     ))
                 }
             </div>
+            <ToastContainer
+                position="top-center"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover={false}
+                theme="dark"
+            />
         </>
     );
 }
