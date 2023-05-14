@@ -68,17 +68,9 @@ const LoginPage = (props) => {
             <input type="password" name="password" className="form-control" required onChange={(e) => { setPassword(e.target.value) }} />
           </div>
 
-<<<<<<< HEAD
           <button type="submit" className="btn btn-primary mb-3" style={{ width: "100%" }}>Login</button>
-          <span>Forget My Password <Link to="/forget">Click Here</Link></span>
+          <span>Forget My Password <Link to="/forgotPassword">Click Here</Link></span>
         </form>
-=======
-            <button type="submit" className="btn btn-primary mb-3" style={{ width: "100%" }}>Login</button>
-            <span>Forget My Password <Link to="/forgotPassword">Click Here</Link></span>
-          </form>
-
-        </div>
->>>>>>> a33c10135a6a590dc1b2bff9ffd5fe1e1c2aaf1b
 
       </div>
 
