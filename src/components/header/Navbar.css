@@ -1,0 +1,49 @@
+.profile-section {
+    margin-left: 550px;
+    margin-top: 5;
+   
+}
+.nav-logo {
+    margin-left: 20px;
+    margin-top: 0px;
+}
+
+.input-form {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+@media screen and (max-width: 799px){
+
+    .nab-var {
+        background: rgb(0, 0, 0);
+        background: linear-gradient(90deg, rgba(0, 0, 0, 1) 2%, rgba(23, 149, 113, 0.9305847338935574) 75%, rgba(13, 78, 59, 1) 94%);
+    }
+
+    .nav-header {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: space;
+    }
+   
+    .input-form {
+     margin-left: 30px;
+     margin-right: 30px;
+    }
+
+    .form-control {
+        /* width: 70px; */
+        height: 40px;
+        /* margin-left: 250px; */
+    }
+
+    .profile-section {
+      margin-top: 0;
+      margin-left: 200px;
+      padding-right: 25px;
+      margin-bottom: 5px;
+      margin-bottom: 5px;
+      color: white;
+    }
+
+}

@@ -35,7 +35,13 @@ function Avatar() {
       <div className="dropdown">
         <span className="d-flex align-items-center gap-2 link-dark text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
           <h6>{localStorage.getItem('userName')}</h6>
-          <img src="https://github.com/mdo.png" alt="mdo" width="40" height="40" className="rounded-circle" />
+          <img 
+            src={user?.users_img ?? "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"} 
+            alt="mdo" 
+            width="40" 
+            height="40" 
+            className="rounded-circle" 
+          />
         </span>
         <ul className="dropdown-menu text-small">
           <li>{role == 2 ?

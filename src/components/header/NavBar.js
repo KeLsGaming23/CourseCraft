@@ -3,7 +3,8 @@ import Avatar from "./Avatar";
 import LoginRegisterButton from "./LoginRegisterButton";
 import { useContext, useState } from "react";
 import { CourseContext } from "../../context/CourseContext";
-import Logo1 from './Logo1.png';
+import Logo1 from './header-logo.png';
+import './Navbar.css'
 
 function NavBar(props) {
   const [searchQuery, setSearchQuery] = useState("");
@@ -49,40 +50,54 @@ function NavBar(props) {
   };
   return (
     <>
-      <div className="container-fluid">
-        <header className="d-flex align-items-center justify-content-around p-3 border-bottom">
-          {/* <div className="col-md-3 mb-2 mb-md-0"> */}
-          <Link to="/" className="text-decoration-none text-black">
-            <img src={Logo1} style={{ width: "170px", height: "70px" }} alt="logo"></img>
-            {/* <h1>CourseCraft</h1> */}
-            {/* <svg className="bi" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap" /></svg> */}
-          </Link>
-          {/* </div> */}
-          {/* Search Bar */}
-          <form onSubmit={handleSearch}>
-            <input type="text"
-              placeholder="Search Course"
-              value={searchQuery}
-              className="form-control"
-              style={{ width: "700px" }}
-              onChange={(event) => setSearchQuery(event.target.value)} />
-            {/* <button type="submit">Search</button> */}
-          </form>
-          {/* <div>
-            <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+      <div className="d-flex justify-content-evenly nav-container navbar navbar-expand-lg navbar-light bg-light nab-var fixed-top">
+        <Link to="/#" className="text-decoration-none text-black">
+          <img src={Logo1} className="nav-logo" style={{ width: "170px", height: "70px" }} alt="logo"/>
+        </Link>
+
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <div class="navbar-nav">
+            <header className=" p-3 border-bottom nav-item active d-flex nav-header">
+              {/* <div className="col-md-3 mb-2 mb-md-0"> */}
+              {/* </div> */}
+              {/* Search Bar */}
+              <form onSubmit={handleSearch} className="input-form">
+                <input type="text"
+                  placeholder="Search Course"
+                  aria-label="Search"
+                  value={searchQuery}
+                  className="form-control"
+                  style={{ width: "300px" }}
+                  onChange={(event) => setSearchQuery(event.target.value)} />
+                {/* <button type="submit">Search</button> */}
+              </form>
+
+              <div className="profile-section ">
+                {profile}{buttons}
+              </div>
+              {/* <div> */}
+              {/* <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
               <li>
                 <Link to="/secondMain" className="nav-link px-2 link-secondary">
                   Student Portal
                 </Link>
               </li>
             </ul>
-          </div> */}
-          {/* {localStorage.getItem('userName')} */}
-          {profile}{buttons}
-          {/* {user!==null ? <Avatar /> : <LoginRegisterButton />} */}
-          {/* Render SearchResults component if there are results */}
-        </header>
+          </div>  */}
+              {/* {localStorage.getItem('userName')} */}
+              {/* {user!==null ? <Avatar /> : <LoginRegisterButton />} */}
+              {/* Render SearchResults component if there are results */}
+            </header>
+          </div>
+        </div>
       </div>
+
+
+
     </>
   );
 }

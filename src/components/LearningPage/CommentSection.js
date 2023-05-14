@@ -2,8 +2,8 @@ import { useContext, useEffect, useState } from 'react';
 import { CourseContext } from '../../context/CourseContext';
 import Comment from './Comment';
 import axios from 'axios';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+// import { toast, ToastContainer } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 
 function CommentSection() {
 
@@ -15,16 +15,16 @@ function CommentSection() {
         setAskQuestion(e.target.value);
     }
 
-    const commentNotify = () => toast.success('Ask Question Succesful wait for the response', {
-        position: "top-center",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-    });
+    // const commentNotify = () => toast.success('Ask Question Succesful wait for the response', {
+    //     position: "top-center",
+    //     autoClose: 3000,
+    //     hideProgressBar: false,
+    //     closeOnClick: true,
+    //     pauseOnHover: false,
+    //     draggable: true,
+    //     progress: undefined,
+    //     theme: "dark",
+    // });
 
     async function handleQuestion() {
         const token = localStorage.getItem('token');
@@ -37,7 +37,7 @@ function CommentSection() {
                     }
                 });
                 if (response) {
-                    commentNotify();
+                    // commentNotify();
                     getStudentQuestions(prevQuestions => [...prevQuestions, response.data]);
                     setAskQuestion('');
                 }
@@ -97,7 +97,7 @@ function CommentSection() {
                     ))
                 }
             </div>
-            <ToastContainer
+            {/* <ToastContainer
                 position="top-center"
                 autoClose={3000}
                 hideProgressBar={false}
@@ -108,7 +108,7 @@ function CommentSection() {
                 draggable
                 pauseOnHover={false}
                 theme="dark"
-            />
+            /> */}
         </>
     );
 }
